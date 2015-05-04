@@ -1,2 +1,8 @@
-<h1>Olá Mundo!</h1>
-<h2>Está é a view exemplo!</h2>
+<h1>Categories List!</h1>
+
+<ul>
+    @foreach($categories as $category)
+        <li> {{$category->name}} </li>
+        {{--<li> {{$category->description}} </li>--}}
+    @endforeach
+</ul>
