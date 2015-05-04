@@ -15,7 +15,7 @@ class AdminProductsController extends Controller {
 	public function index(\CodeCommerce\Product $product)
 	{
         $products = $product->all();
-        return view('admin.products.index', ['products' => $products]);
+        return view('admin.products.index', compact('products'));
 	}
 
 	/**
