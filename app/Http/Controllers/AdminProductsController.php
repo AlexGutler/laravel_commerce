@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class AdminProductsController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * LISTAGEM DE TODOS OS PRODUTOS.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(\CodeCommerce\Product $product)
 	{
-        // LISTAGEM DE TODAS OS PRODUTOS
-        return view('admin.categories.index');
+        $products = $product->all();
+        return view('admin.products.index', ['products' => $products]);
 	}
 
 	/**

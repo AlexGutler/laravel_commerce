@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProductsTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('products', function(Blueprint $table)
@@ -18,14 +13,10 @@ class CreateProductsTable extends Migration {
 			$table->string('name', 80);
 			$table->text('description');
 			$table->decimal('price', 10, 2);
+            $table->timestamps();
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('products');

@@ -8,17 +8,14 @@ use Illuminate\Http\Request;
 class AdminCategoriesController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * LISTAGEM DE TODAS AS CATEGORIAS
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(\CodeCommerce\Category $category)
 	{
-        $cats = new \CodeCommerce\Category();
+        $categories = $category->all();
 
-        $categories = $cats->all();
-        //return $categories;
-        // LISTAGEM DE TODAS AS CATEGORIAS
         return view('admin.categories.index', ['categories' => $categories]);
 	}
 
