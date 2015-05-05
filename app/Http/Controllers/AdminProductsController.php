@@ -3,18 +3,20 @@
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
+use CodeCommerce\Product;
 use Illuminate\Http\Request;
 
 class AdminProductsController extends Controller {
+    private $productModel;
 
-	/**
-	 * LISTAGEM DE TODOS OS PRODUTOS.
-	 *
-	 * @return Response
-	 */
-	public function index(\CodeCommerce\Product $product)
+    public function __construct(Product $productModel)
+    {
+        $this->productModel = $productModel;
+    }
+
+	public function index()
 	{
-        $products = $product->all();
+        $products = $this->productModel->all();
         return view('admin.products.index', compact('products'));
 	}
 

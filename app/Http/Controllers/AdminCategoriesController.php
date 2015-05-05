@@ -1,20 +1,22 @@
 <?php namespace CodeCommerce\Http\Controllers;
 
+use CodeCommerce\Category;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
 class AdminCategoriesController extends Controller {
+    private $categoryModel;
 
-	/**
-	 * LISTAGEM DE TODAS AS CATEGORIAS
-	 *
-	 * @return Response
-	 */
-	public function index(\CodeCommerce\Category $category)
+    public function __construct(Category $categoryModel)
+    {
+        $this->categoryModel = $categoryModel;
+    }
+
+	public function index()
 	{
-        $categories = $category->all();
+        $categories = $this->categoryModel->all();
 
         return view('admin.categories.index', compact('categories'));
 	}
