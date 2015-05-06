@@ -2,9 +2,6 @@
 
 use CodeCommerce\Category;
 use CodeCommerce\Http\Requests;
-use CodeCommerce\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 
 class CategoriesController extends Controller {
 
@@ -21,66 +18,41 @@ class CategoriesController extends Controller {
         return view('categories.index', compact('categories'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
-		//
+		return view('categories.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+	public function store(Requests\CategoryRequest $request)
 	{
-		//
+        // armazena todos os dados da requisição na variavel
+        $input = $request->all();
+        $category = $this->categoryModel->fill($input); // fill - preenche os dados
+
+        $category->save();
+
+        return redirect()->route('categories.index');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+    public function destroy($id)
+    {
+        $this->categoryModel->find($id)->delete();
+        return redirect()->route('categories.index');
+    }
+
+    public function edit($id)
+    {
+        $category = $this->categoryModel->find($id);
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update(Requests\CategoryRequest $request, $id)
+    {
+        $this->categoryModel->find($id)->update($request->all());
+        return redirect()->route('categories.index');
+    }
+
 	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
 	{
 		//
 	}

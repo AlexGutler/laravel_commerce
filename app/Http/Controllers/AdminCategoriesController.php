@@ -28,7 +28,7 @@ class AdminCategoriesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        return "Rota para criar uma Category";
 	}
 
 	/**
@@ -38,7 +38,7 @@ class AdminCategoriesController extends Controller {
 	 */
 	public function store()
 	{
-		//
+        return "Rota para salvar uma Category no banco";
 	}
 
 	/**
@@ -60,7 +60,7 @@ class AdminCategoriesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        return "Rota para editar uma Category";
 	}
 
 	/**
@@ -71,7 +71,7 @@ class AdminCategoriesController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+        return "Rota para atualizar o registro de uma Category no banco";
 	}
 
 	/**
@@ -82,7 +82,7 @@ class AdminCategoriesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+        return "Rota para deletar uma Category";
 	}
 
 }

@@ -1,9 +1,15 @@
 @extends('app')
 
+@section('title')
+    <title>CodeCommerce - Categories</title>
+@endsection
+
 @section('content')
 
     <div class="container">
         <h1>Categories</h1>
+
+        <p><a class="btn btn-primary" href="{{route('categories.create')}}"> + Category</a> </p>
 
         <table class="table">
             <thead>
@@ -20,7 +26,10 @@
                         <td>{{$cateogry->id}}</td>
                         <td>{{$cateogry->name}}</td>
                         <td>{{$cateogry->description}}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{route('categories.edit', ['id' => $cateogry->id])}}" class="btn btn-success">Edit</a>
+                            <a href="{{route('categories.destroy', ['id' => $cateogry->id])}}" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

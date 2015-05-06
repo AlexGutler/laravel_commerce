@@ -27,7 +27,7 @@ class AdminProductsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        return "Rota para criar um Product";
 	}
 
 	/**
@@ -37,7 +37,7 @@ class AdminProductsController extends Controller {
 	 */
 	public function store()
 	{
-		//
+        return "Rota para salvar um Product no banco";
 	}
 
 	/**
@@ -59,7 +59,7 @@ class AdminProductsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		return "Rota para editar um Product";
 	}
 
 	/**
@@ -70,7 +70,7 @@ class AdminProductsController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+        return "Rota para atualizar o registro de um Product no banco";
 	}
 
 	/**
@@ -81,7 +81,7 @@ class AdminProductsController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+        return "Rota para deletar um Product";
 	}
 
 }
