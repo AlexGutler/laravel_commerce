@@ -5,18 +5,15 @@
 @endsection
 
 @section('content')
-
     <div class="container">
         <h1>Create Product</h1>
-
         @if ($errors->any())
-            <ul class="alert">
+            <ul class="alert-danger">
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
         @endif
-
         {{--
             * http://laravel.com/docs/4.2/html
             * http://laravelcollective.com/ * http://laravelcollective.com/docs/5.0/html
@@ -32,15 +29,21 @@
             </div>
             <div class="form-group">
                 {!! Form::label('price', 'Price:') !!}
-                {!! Form::number('price', null) !!}
+                {!! Form::number('price', '', ['class' => 'form-control ']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('featured', 'Featured:') !!}
-                {!! Form::checkbox('featured', false, false) !!}
+                {!! Form::label('featured', 'Featured:')  !!}
+                <div class="form-control">
+                    {!! Form::radio('featured', false, true); !!} No
+                    {!! Form::radio('featured', true, false); !!} Yes
+                </div>
             </div>
             <div class="form-group">
                 {!! Form::label('recommend', 'Recommend:') !!}
-                {!! Form::checkbox('recommend', false, false) !!}
+                <div class="form-control">
+                    {!! Form::radio('recommend', false, true); !!} No
+                    {!! Form::radio('recommend', true, false); !!} Yes
+                </div>
             </div>
 
             <div class="form-group">

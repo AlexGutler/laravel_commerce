@@ -37,10 +37,6 @@ class AdminCategoriesController extends Controller {
         return redirect()->route('admin.categories.index');
     }
 
-	public function show($id)
-	{
-	}
-
 	public function edit($id)
 	{
         $category = $this->categoryModel->find($id);
@@ -59,4 +55,5 @@ class AdminCategoriesController extends Controller {
         return redirect()->route('admin.categories.index');
 	}
 
+    public function show($id){}
 }

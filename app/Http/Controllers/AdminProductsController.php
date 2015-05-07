@@ -25,7 +25,7 @@ class AdminProductsController extends Controller {
         return view('admin.products.create');
     }
 
-    public function store(Requests\CategoryRequest $request)
+    public function store(Requests\ProductRequest $request)
     {
         // armazena todos os dados da requisição na variavel
         $input = $request->all();
@@ -36,17 +36,13 @@ class AdminProductsController extends Controller {
         return redirect()->route('admin.products.index');
     }
 
-    public function show($id)
-    {
-    }
-
     public function edit($id)
     {
         $product = $this->productModel->find($id);
-        return view('admin.categories.edit', compact('product'));
+        return view('admin.products.edit', compact('product'));
     }
 
-    public function update(Requests\CategoryRequest $request, $id)
+    public function update(Requests\ProductRequest $request, $id)
     {
         $this->productModel->find($id)->update($request->all());
         return redirect()->route('admin.products.index');
@@ -58,4 +54,5 @@ class AdminProductsController extends Controller {
         return redirect()->route('admin.products.index');
     }
 
+    public function show($id){}
 }

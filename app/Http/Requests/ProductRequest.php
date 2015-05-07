@@ -2,7 +2,7 @@
 
 use CodeCommerce\Http\Requests\Request;
 
-class CategoryRequest extends Request {
+class ProductRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -23,8 +23,11 @@ class CategoryRequest extends Request {
 	{
         // http://laravel.com/docs/5.0/validation
 		return [
-			'name' => 'required|min:3|max:50',
-			'description' => 'required|min:10|max:255'
+            'name' => 'required|min:3|max:50',
+            'description' => 'required|min:10',
+            'price' => 'required|numeric',
+            'featured' => 'boolean',
+            'recommend' => 'boolean',
 		];
 	}
 

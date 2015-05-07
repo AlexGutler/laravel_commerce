@@ -1,16 +1,16 @@
 ## CodeCommerce
 
-## Projeto Fase 3
+## Projeto Fase 4
 
-### Criação das rotas:
+### CRUD
 
-Agora que você já possui os dois models criados, crie as rotas necessárias para que possamos realizar um CRUD em cada model.
-
-Para facilitar a administração do arquivo de rotas, as mesmas deverão ser totalmente agrupadas pelo prefixo: admin e pelo seu próprio model.
-
-Exemplo: admin/products, admin/categories
-
-OBS: Enquanto nem todos os controllers e actions ainda não estão definidos, aponte as rotas para um controller e action qualquer.
-
-OBS 2: Todas as rotas devem possuir nome e seus parâmetros devem ser validados.
-
+Nessa fase, você deverá criar 2 CRUDs.
+- Categories (exatamente como fizemos no vídeo)
+- Products.
+No caso do CRUD de Products, devemos ter os seguintes campos:
+- name
+- description
+- price (decimal)
+- featured (boolean) Aqui você pode criar um campo do tipo: checkbox, radio ou select
+- recommend (boolean) Aqui você pode criar um campo do tipo: checkbox, radio ou select
+Utilize o recurso de migrations para gerar a tabela "products".
