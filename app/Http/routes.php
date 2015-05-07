@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -44,3 +43,12 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'categories'], function(){
+    Route::get('', ['as' => 'categories.index', 'uses' => 'CategoriesController@index']);
+    Route::post('', ['as' => 'categories.store', 'uses' => 'CategoriesController@store']);
+    Route::get('/create', ['as' => 'categories.create', 'uses' => 'CategoriesController@create']);
+    Route::get('/{id}/destroy', ['as' => 'categories.destroy', 'uses' => 'CategoriesController@destroy']);
+    Route::get('/{id}/edit', ['as' => 'categories.edit', 'uses' => 'CategoriesController@edit']);
+    Route::put('/{id}/update', ['as' => 'categories.update', 'uses' => 'CategoriesController@update']);
+});

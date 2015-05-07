@@ -21,68 +21,42 @@ class AdminCategoriesController extends Controller {
         return view('admin.categories.index', compact('categories'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
-        return "Rota para criar uma Category";
+        return view('admin.categories.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-        return "Rota para salvar uma Category no banco";
-	}
+    public function store(Requests\CategoryRequest $request)
+    {
+        // armazena todos os dados da requisição na variavel
+        $input = $request->all();
+        $category = $this->categoryModel->fill($input); // fill - preenche os dados
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+        $category->save();
+
+        return redirect()->route('admin.categories.index');
+    }
+
 	public function show($id)
 	{
-		//
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
 	{
-        return "Rota para editar uma Category";
+        $category = $this->categoryModel->find($id);
+        return view('admin.categories.edit', compact('category'));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+	public function update(Requests\CategoryRequest $request, $id)
 	{
-        return "Rota para atualizar o registro de uma Category no banco";
+        $this->categoryModel->find($id)->update($request->all());
+        return redirect()->route('admin.categories.index');
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
-        return "Rota para deletar uma Category";
+        $this->categoryModel->find($id)->delete();
+        return redirect()->route('admin.categories.index');
 	}
 
 }

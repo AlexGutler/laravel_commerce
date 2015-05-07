@@ -20,68 +20,42 @@ class AdminProductsController extends Controller {
         return view('admin.products.index', compact('products'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-        return "Rota para criar um Product";
-	}
+    public function create()
+    {
+        return view('admin.products.create');
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-        return "Rota para salvar um Product no banco";
-	}
+    public function store(Requests\CategoryRequest $request)
+    {
+        // armazena todos os dados da requisição na variavel
+        $input = $request->all();
+        $products = $this->productModel->fill($input); // fill - preenche os dados
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+        $products->save();
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		return "Rota para editar um Product";
-	}
+        return redirect()->route('admin.products.index');
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-        return "Rota para atualizar o registro de um Product no banco";
-	}
+    public function show($id)
+    {
+    }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-        return "Rota para deletar um Product";
-	}
+    public function edit($id)
+    {
+        $product = $this->productModel->find($id);
+        return view('admin.categories.edit', compact('product'));
+    }
+
+    public function update(Requests\CategoryRequest $request, $id)
+    {
+        $this->productModel->find($id)->update($request->all());
+        return redirect()->route('admin.products.index');
+    }
+
+    public function destroy($id)
+    {
+        $this->productModel->find($id)->delete();
+        return redirect()->route('admin.products.index');
+    }
 
 }
