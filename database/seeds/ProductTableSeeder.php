@@ -20,7 +20,7 @@ class ProductTableSeeder extends Seeder
                     'price' => mt_rand(0, 5000),
                     'featured' => (bool)rand(0,1),
                     'recommend' => (bool)rand(0,1),
-                ]);
+            ]);
         }
     }
 }
