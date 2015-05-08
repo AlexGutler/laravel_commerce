@@ -32,6 +32,7 @@
             </div>
             <div class="form-group">
                 {!! Form::submit('Add Category', ['class' => 'btn btn-primary']) !!}
+                <a href="{{route('admin.categories.index')}}" class="btn btn-default">Return</a>
             </div>
         {!! Form::close() !!}
     </div>

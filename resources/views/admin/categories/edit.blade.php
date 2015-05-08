@@ -33,6 +33,7 @@
             <div class="form-group">
                 {!! Form::hidden('_method', 'put') !!}
                 {!! Form::submit('Update Category', ['class' => 'btn btn-primary']) !!}
+                <a href="{{route('admin.categories.index')}}" class="btn btn-default">Cancel</a>
             </div>
         {!! Form::close() !!}
     </div>

@@ -7,6 +7,7 @@ class CreateProductsTable extends Migration {
 
 	public function up()
 	{
+        // criar a tabela
 		Schema::create('products', function(Blueprint $table)
 		{
 			$table->increments('id');

@@ -26,6 +26,7 @@ class ProductRequest extends Request {
             'name' => 'required|min:3|max:50',
             'description' => 'required|min:10',
             'price' => 'required|numeric',
+            'category_id' => 'required|numeric',
             'featured' => 'boolean',
             'recommend' => 'boolean',
 		];

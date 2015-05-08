@@ -32,6 +32,10 @@
                 {!! Form::number('price', '', ['class' => 'form-control ']) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('category', 'Category:') !!}
+                {!! Form::select('category_id', $categories, null, ['class' => 'form-control ']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('featured', 'Featured:')  !!}
                 <div class="form-control">
                     {!! Form::radio('featured', false, true); !!} No
@@ -48,6 +52,7 @@
 
             <div class="form-group">
                 {!! Form::submit('Add Product', ['class' => 'btn btn-primary']) !!}
+                <a href="{{route('admin.products.index')}}" class="btn btn-default">Return</a>
             </div>
         {!! Form::close() !!}
     </div>

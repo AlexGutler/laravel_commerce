@@ -1,10 +1,15 @@
 ## CodeCommerce
 
-## Projeto Fase 5
+## Projeto Fase 6
 
-### SEEDING
+### Relacionando
 
-Nessa fase, você deverá adicionar dados Fakes nas seguintes entidades:
-- User
-- Category
-- Product
+Essa fase do projeto é bem simples.
+
+Você apenas deverá criar o relacionamento entre os Models, exatamente como fiz nesse capítulo.
+
+Também, você deverá implementar a paginação em todos os CRUDs.
+
+OBS: Não se esqueça de checar se suas rotas estão seguindo o mesmo padrão que estou utilizando.
+
+Boa sorte!
