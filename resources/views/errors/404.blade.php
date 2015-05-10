@@ -1,8 +1,7 @@
 <html>
 	<head>
-        <title>503 - Service Unavailable</title>
+        <title>404 - Page not found</title>
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
 		<style>
 			body {
 				margin: 0;
@@ -35,7 +34,8 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Be right back.</div>
+				<div class="title">Error 404</div>
+                <div class="title">The page that you're looking for was not found</div>
 			</div>
 		</div>
 	</body>

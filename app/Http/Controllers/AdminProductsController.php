@@ -3,7 +3,6 @@
 use CodeCommerce\Category;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
-
 use CodeCommerce\Product;
 use CodeCommerce\ProductImage;
 use Illuminate\Http\Request;
