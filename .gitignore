@@ -1,0 +1,11 @@
+/vendor
+/node_modules
+.env
+_ide_helper.php
+# Path para download do _ide_helper necessário para o PhpStorm fazer autocomplete do Laravel
+# https://gist.github.com/barryvdh/5227822
+/.idea
+composer.lock
+composer.phar
+/app/Http/routes_exemplos.php
+/app/Providers/RouteServiceProvider_exemplos.php
