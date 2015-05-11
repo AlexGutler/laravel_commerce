@@ -57,7 +57,9 @@ return [
         'dropbox' => [
             'driver' => 'dropbox',
             'token' => 'vegfjm1ybzrb32d',
-            'app' => 'CodeCommerce'
+            'app' => 'CodeCommerce',
+            'accessToken' => 'vegfjm1ybzrb32d',
+            'clientIdentifier' => 'alex11jgt@hotmail.com',
         ],
 
 		's3' => [
