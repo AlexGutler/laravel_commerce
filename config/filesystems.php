@@ -54,6 +54,11 @@ return [
             'root'   => public_path().'/uploads',
         ],
 
+        'products_local' => [
+            'driver' => 'local',
+            'root'   => public_path().'/uploads/images/products',
+        ],
+
         'dropbox' => [
             'driver' => 'dropbox',
             'token' => 'vegfjm1ybzrb32d',

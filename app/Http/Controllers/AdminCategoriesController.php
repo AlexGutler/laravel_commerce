@@ -17,8 +17,9 @@ class AdminCategoriesController extends Controller {
 	public function index()
 	{
         //$categories = $this->categoryModel->all();
-        $categories = $this->categoryModel->paginate(10);
 
+        // cria a paginação dos resultados
+        $categories = $this->categoryModel->paginate(10);
         return view('admin.categories.index', compact('categories'));
 	}
 
@@ -31,8 +32,9 @@ class AdminCategoriesController extends Controller {
     {
         // armazena todos os dados da requisição na variavel
         $input = $request->all();
-        $category = $this->categoryModel->fill($input); // fill - preenche os dados
-
+        // fill - preenche os dados
+        $category = $this->categoryModel->fill($input);
+        // aplica no banco
         $category->save();
 
         return redirect()->route('admin.categories.index');
@@ -40,18 +42,21 @@ class AdminCategoriesController extends Controller {
 
 	public function edit($id)
 	{
+        // busca o produto
         $category = $this->categoryModel->find($id);
         return view('admin.categories.edit', compact('category'));
 	}
 
 	public function update(Requests\CategoryRequest $request, $id)
 	{
+        // atualiza o registro com os dados do request
         $this->categoryModel->find($id)->update($request->all());
         return redirect()->route('admin.categories.index');
 	}
 
 	public function destroy($id)
 	{
+        // busca e deleta o registro
         $this->categoryModel->find($id)->delete();
         return redirect()->route('admin.categories.index');
 	}

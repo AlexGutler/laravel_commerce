@@ -32,6 +32,10 @@
                 {!! Form::number('price', $product->price, ['class' => 'form-control ']) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('tags', 'Tags:') !!}
+                {!! Form::textarea('tags', $product->tag_list, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('category', 'Category:') !!}
                 {!! Form::select('category_id', $categories, $product->category_id, ['class' => 'form-control ']) !!}
             </div>

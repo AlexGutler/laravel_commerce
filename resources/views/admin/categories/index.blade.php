@@ -4,6 +4,8 @@
     <title>CodeCommerce - Admin - Categories</title>
 @endsection
 
+@section('categories-active')active @endsection
+
 @section('content')
 
     <div class="container">
@@ -27,7 +29,7 @@
                     <td>{{$cateogry->name}}</td>
                     <td>{{$cateogry->description}}</td>
                     <td>
-                        <a href="{{route('admin.categories.edit', ['id' => $cateogry->id])}}" class="btn btn-success">Edit</a>
+                        <a href="{{route('admin.categories.edit', ['id' => $cateogry->id])}}" class="btn btn-warning">Edit</a>
                         <a href="{{route('admin.categories.destroy', ['id' => $cateogry->id])}}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

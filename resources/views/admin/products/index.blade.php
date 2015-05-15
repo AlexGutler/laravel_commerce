@@ -4,6 +4,8 @@
     <title>CodeCommerce - Admin - Products</title>
 @endsection
 
+@section('products-active')active @endsection
+
 @section('content')
     <div class="container">
         <h1>Products</h1>
