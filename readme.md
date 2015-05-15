@@ -1,13 +1,11 @@
 ## CodeCommerce
 
-## Projeto Fase 7
+## Projeto Fase 8
 
-### Upload de Imagens
+### Tags
 
-Essa etapa é bastante simples.
+Agora que você já aprendeu a trabalhar com relacionamentos ManyToMany, adicione ao formulário de Criação / Edicação de 
+produtos, a opção de setar tags para determinado produto em um textarea (entre vírgulas).
 
-Você simplesmente precisa repetir exatamente o processo de cadastro de imagens de produtos com upload.
-
-Por outro lado, gostaria que você também testasse o processo de upload utilizando a Amazon S3. Ok?
-
-Obs.: Não fiz o upload para o Amazon S3. Não possuo conta.
+Obs.: Uma tag já adicionada na tabela de tags não pode ter o registro repetido, ou seja, não pode ter duas categorias 
+"notebooks" na tabela tags.
