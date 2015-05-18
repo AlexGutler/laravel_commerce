@@ -1,11 +1,12 @@
 ## CodeCommerce
 
-## Projeto Fase 8
+## Projeto Fase 9
 
-### Tags
+### Loja
 
-Agora que você já aprendeu a trabalhar com relacionamentos ManyToMany, adicione ao formulário de Criação / Edicação de 
-produtos, a opção de setar tags para determinado produto em um textarea (entre vírgulas).
+Agora que você já possui a base para gerar a home da Loja, você precisa:
 
-Obs.: Uma tag já adicionada na tabela de tags não pode ter o registro repetido, ou seja, não pode ter duas categorias 
-"notebooks" na tabela tags.
+- Listar os produtos em desta
+- Listar os produtos recomendados
+
+Quando clicarmos em um item da categoria, deveremos exibir apenas os produtos de uma determinada categoria.
