@@ -9,4 +9,4 @@ composer.lock
 composer.phar
 app/Http/routes_exemplos.php
 app/Providers/RouteServiceProvider_exemplos.php
-public/uploads/images/products/**
+#public/uploads/images/products/**
