@@ -46,4 +46,14 @@ class Product extends Model
 
         return implode(',', $tags);
     }
+
+    // Query Scope
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', '=', 1);
+    }
+    public function scopeRecommend($query)
+    {
+        return $query->where('recommend', '=', 1);
+    }
 }

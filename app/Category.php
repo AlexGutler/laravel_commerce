@@ -10,9 +10,15 @@ class Category extends Model {
         'description'
     ];
 
-    // faz o relaciomanento com products dizendo que oneToMany
+    // faz o relaciomanento com products dizendo que é oneToMany
     public function products()
     {
         return $this->hasMany('CodeCommerce\Product');
+    }
+
+    // Query Scope
+    public function byName($categoryName)
+    {
+        return $this->where('name', '=', $categoryName);
     }
 }
