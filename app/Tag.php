@@ -13,6 +13,7 @@ class Tag extends Model
     // relacionamento com Product
     public function products()
     {
-        return $this->hasMany('CodeCommerce\Product');
+//        return $this->hasMany('CodeCommerce\Product');
+        return $this->belongsToMany('CodeCommerce\Product');
     }
 }

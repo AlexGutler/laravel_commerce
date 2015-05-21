@@ -54,6 +54,15 @@
                         </a>
                     </span>
 
+                    <p>
+                        @if(count($product->tags))
+                            Tags:
+                            @foreach($product->tags as $tag)
+                                <a href="{{ route('store.tag', ['id' => $tag->id]) }}" class="btn btn-default">{{$tag->name}}</a>
+                            @endforeach
+                        @endif
+                    </p>
+
                 </div>
                 <!--/product-information-->
             </div>
