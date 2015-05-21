@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function(){
 /* store */
 Route::get('/', 'StoreController@index');
 Route::get('/category/{category}', ['as' => 'category.list', 'uses' => 'StoreController@categoryList'])->where(['category' => '[A-Za-z]+']);
+Route::get('/category/{id}', ['as' => 'store.category', 'uses' => 'StoreController@category'])->where(['id' => '[0-9]+']);
+Route::get('/product/{id}', ['as' => 'store.product', 'uses' => 'StoreController@product'])->where(['id' => '[0-9]+']);
 
 Route::get('/exemplo', 'WelcomeController@exemplo');
 

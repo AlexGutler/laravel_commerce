@@ -49,9 +49,9 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Minha conta</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                             <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Buscar"/>
+                        <input type="text" placeholder="Search here..."/>
                     </div>
                 </div>
             </div>

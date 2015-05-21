@@ -17,9 +17,9 @@ class StoreController extends Controller {
 	public function index(Category $category, Product $product)
 	{
         $prodFeatured = $product->featured()->get();
-        $prodRecommend = $product->recommend()->get();
+        $prodRecommended = $product->recommend()->get();
         $categories = $category->all();
-		return view('store.index', compact('categories', 'prodFeatured', 'prodRecommend'));
+		return view('store.index', compact('categories', 'prodFeatured', 'prodRecommended'));
 	}
 
     public function categoryList(Category $category, $categoryName)
@@ -28,6 +28,22 @@ class StoreController extends Controller {
         $category = $category->byName($categoryName)->get()->first();
         $products = $category->products;
         return view('store.categories_list', compact('category', 'categories', 'products'));
+    }
+
+    public function category(Category $category, Product $product, $id)
+    {
+        $categories = $category->all();
+        $category = $category->find($id);
+        $products = $product->ofCategory($id)->get(); // utilizando global scope
+        return view('store.category', compact('category', 'categories', 'products'));
+    }
+
+    public function product(Category $category, Product $p, $id)
+    {
+        $categories = $category->all();
+        $product = $p->find($id);
+
+        return view('store.product', compact('categories', 'product'));
     }
 
 	/**
