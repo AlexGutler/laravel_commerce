@@ -44,7 +44,7 @@ class CartController extends Controller
 
         Session::set('cart', $cart);
 
-        return redirect()->route('home');
+        return redirect()->route('cart');
     }
 
 }

@@ -17,7 +17,7 @@ class Cart
         // id -> qtd, price, name
         $this->items += [
             $id => [
-                'qtd' => isset($this->items[$id]['qtd']) ? $this[$id]['qtd']++ : 1,
+                'qtd' => isset($this->items[$id]['qtd']) ? $this->items[$id]['qtd']++ : 1,
                 'price' => $price,
                 'name' => $name
             ]

@@ -30,17 +30,17 @@
                                     </a>
                                 </td>
                                 <td class="cart_description">
-                                    <h4><a href="#">{{$item['name']}}</a></h4>
-                                    <p>Código: {{$k}}</p>
+                                    <h4><a href="{{route('store.product',['id' => $k])}}">{{$item['name']}}</a></h4>
+                                    <p>Cód: {{$k}}</p>
                                 </td>
                                 <td class="cart_price">
-                                    R$ {{$item['price']}}
+                                    R$ {{ number_format($item['price'], 2) }}
                                 </td>
                                 <td class="cart_quantity">
                                     {{$item['qtd']}}
                                 </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price">R$ {{$item['price'] * $item['qtd']}}</p>
+                                    <p class="cart_total_price">R$ {{number_format($item['price'] * $item['qtd'], 2)}}</p>
                                 </td>
                                 <td class="cart_delete">
                                     <a href="#" class="cart_quantity_delete">Delete</a>
