@@ -32,11 +32,7 @@ class CartController extends Controller
 
     public function add($id)
     {
-        if(Session::has('cart')){
-          $cart = Session::get('cart');
-        } else {
-            $cart = $this->cart;
-        }
+        $cart = $this->getCart();
 
         $product = Product::find($id);
 
@@ -45,6 +41,27 @@ class CartController extends Controller
         Session::set('cart', $cart);
 
         return redirect()->route('cart');
+    }
+
+    public function destroy($id)
+    {
+        $cart = $this->getCart();
+        $cart->remove($id);
+
+        Session::set('cart', $cart);
+
+        return redirect()->route('cart');
+    }
+
+    public function getCart()
+    {
+        if (Session::has('cart')) {
+            $cart = Session::get('cart');
+        } else {
+            $cart = $this->cart;
+        }
+
+        return $cart;
     }
 
 }
