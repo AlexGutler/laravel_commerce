@@ -3,7 +3,9 @@
 use CodeCommerce\Cart;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Product;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\Console\Input\Input;
 
 class CartController extends Controller
 {
@@ -64,4 +66,11 @@ class CartController extends Controller
         return $cart;
     }
 
+    public function change()
+    {
+        if(Request::ajax()) {
+            $data = Request::all();
+            print_r($data);die;
+        }
+    }
 }

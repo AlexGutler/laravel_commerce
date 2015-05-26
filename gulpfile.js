@@ -29,7 +29,8 @@ elixir(function(mix) {
         'jquery.scrollUp.min.js',
         'price-range.js',
         'jquery.prettyPhoto.js',
-        'main.js'
+        'main.js',
+        'change-cart.js'
     ], 'public/js/all.js');
 
     mix.version(['css/all.css', 'js/all.js']);
