@@ -25,7 +25,26 @@ class Cart
         return $this->items;
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public function remove($id)
+    {
+        if ($this->items[$id]['qtd'] == 1) {
+            unset($this->items[$id]);
+        } else {
+            $this->items += [
+                $id => [
+                    'qtd' => $this->items[$id]['qtd']--,
+                ]
+            ];
+        }
+
+        return $this->items;
+    }
+
+    public function destroy($id)
     {
         unset($this->items[$id]);
     }

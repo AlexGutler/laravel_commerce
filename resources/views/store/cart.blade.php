@@ -37,9 +37,9 @@
                                     R$ {{ number_format($item['price'], 2) }}
                                 </td>
                                 <td class="cart_quantity">
-                                    <div class="change-cart btn"><i class="fa fa-minus"></i></div>
-                                        <input type="text" name="qtd" value="{{$item['qtd']}}" disabled style="width: 30px;">
-                                    <div class="change-cart btn"><i class="fa fa-plus"></i></div>
+                                    <a href="{{route('cart.remove',['id' => $k])}}" class="btn"><i class="fa fa-minus"></i></a>
+                                        <input type="text" name="qtd" value="{{$item['qtd']}}" disabled style="width: 30px; text-align: center; ">
+                                    <a href="{{route('cart.add',['id' => $k])}}" class="btn"><i class="fa fa-plus"></i></a>
                                 </td>
                                 <td class="cart_total">
                                     <p class="cart_total_price">R$ {{number_format($item['price'] * $item['qtd'], 2)}}</p>

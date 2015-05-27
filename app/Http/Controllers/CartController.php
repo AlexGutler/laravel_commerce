@@ -45,10 +45,23 @@ class CartController extends Controller
         return redirect()->route('cart');
     }
 
+    public function remove($id)
+    {
+        $cart = $this->getCart();
+
+        $product = Product::find($id);
+
+        $cart->remove($id);
+
+        Session::set('cart', $cart);
+
+        return redirect()->route('cart');
+    }
+
     public function destroy($id)
     {
         $cart = $this->getCart();
-        $cart->remove($id);
+        $cart->destroy($id);
 
         Session::set('cart', $cart);
 

@@ -50,8 +50,9 @@ Route::get('/product/{id}', ['as' => 'store.product', 'uses' => 'StoreController
 Route::get('/tag/{id}', ['as' => 'store.tag', 'uses' => 'StoreController@tag'])->where(['id' => '[0-9]+']);
 Route::get('/cart', ['as' => 'cart', 'uses' => 'CartController@index']);
 Route::get('/cart/add/{id}', ['as' => 'cart.add', 'uses' => 'CartController@add'])->where(['id' => '[0-9]+']);
+Route::get('/cart/remove/{id}', ['as' => 'cart.remove', 'uses' => 'CartController@remove'])->where(['id' => '[0-9]+']);
 Route::get('/cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartController@destroy'])->where(['id' => '[0-9]+']);
-Route::post('/cart/change', ['as' => 'cart.change', 'uses' => 'CartController@change']);
+//Route::post('/cart/change', ['as' => 'cart.change', 'uses' => 'CartController@change']);
 
 
 //Route::get('/exemplo', 'WelcomeController@exemplo');

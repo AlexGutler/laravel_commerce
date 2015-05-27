@@ -51,7 +51,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li><a href="{{route('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                             <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
@@ -80,7 +80,7 @@
                                     <li><a href="#">Products</a></li>
                                     <li><a href="#">Product Details</a></li>
                                     <li><a href="#">Checkout</a></li>
-                                    <li><a href="#">Cart</a></li>
+                                    <li><a href="{{route('cart')}}">Cart</a></li>
                                     <li><a href="#">Login</a></li>
                                 </ul>
                             </li>
