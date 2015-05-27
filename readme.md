@@ -1,12 +1,9 @@
 ## CodeCommerce
 
-## Projeto Fase 9
+## Projeto Fase 10
 
-### Loja
+### Cart
 
-Agora que você já possui a base para gerar a home da Loja, você precisa:
+Nessa fase do projeto, você deverá criar o carrinho de compras como demonstrado, porém, no próprio carrinho, você deverá adicionar uma opção para que possamos alterar a quantidade de um determinado produto.
 
-- Listar os produtos em desta
-- Listar os produtos recomendados
-
-Quando clicarmos em um item da categoria, deveremos exibir apenas os produtos de uma determinada categoria.
+Fique livre para utilizar javascript (ou não), para que possamos realizar uma requisição de atualização no carrinho em relação a quantidade de um produto.
