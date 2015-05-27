@@ -22,14 +22,13 @@ class CartController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Product $product)
 	{
         if(!Session::has('cart'))
         {
             Session::set('cart', $this->cart);
         }
-
-        return view('store.cart', ['cart' => Session::get('cart')]);
+        return view('store.cart', ['cart' => Session::get('cart'), 'product' => $product]);
 	}
 
     public function add($id)

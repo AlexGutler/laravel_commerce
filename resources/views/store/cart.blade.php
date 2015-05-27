@@ -25,8 +25,13 @@
                         @forelse($cart->all() as $k => $item)
                             <tr>
                                 <td class="cart_product">
-                                    <a href="#">
-                                        Image
+                                    <a href="{{route('store.product',['id' => $k])}}">
+                                        {{--*/ $p = $product->find($k) /*--}}
+                                        @if(count($p->images))
+                                            <img src="{{url('uploads/images/products/'.$k.'/'.$p->images->first()->id.'.'.$p->images->first()->extension)}}" width="80" alt=""/>
+                                        @else
+                                            <img src="{{ url('images/no-img.jpg') }}" width="80" alt="" />
+                                        @endif
                                     </a>
                                 </td>
                                 <td class="cart_description">
