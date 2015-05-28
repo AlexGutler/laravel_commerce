@@ -54,7 +54,7 @@ Route::get('/cart/remove/{id}', ['as' => 'cart.remove', 'uses' => 'CartControlle
 Route::get('/cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartController@destroy'])->where(['id' => '[0-9]+']);
 //Route::post('/cart/change', ['as' => 'cart.change', 'uses' => 'CartController@change']);
 
-Route::get('checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+Route::get('checkout/placeOrder', ['middleware' => 'auth', 'as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
 
 //Route::get('/exemplo', 'WelcomeController@exemplo');
 //Route::get('home', 'HomeController@index');
