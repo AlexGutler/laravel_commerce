@@ -11,7 +11,7 @@
 */
 
 // Rotas admin
-Route::group(['prefix' => 'admin', 'where' => ['id' => '[0-9]+']], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'where' => ['id' => '[0-9]+']], function(){
     // categories routes
     Route::group(['prefix' => 'categories'], function(){
         Route::get('', ['as' => 'admin.categories.index', 'uses' => 'AdminCategoriesController@index']);
@@ -54,10 +54,12 @@ Route::get('/cart/remove/{id}', ['as' => 'cart.remove', 'uses' => 'CartControlle
 Route::get('/cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartController@destroy'])->where(['id' => '[0-9]+']);
 //Route::post('/cart/change', ['as' => 'cart.change', 'uses' => 'CartController@change']);
 
+Route::get('checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
 
 //Route::get('/exemplo', 'WelcomeController@exemplo');
 //Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+    'teste' => 'TesteController'
 ]);

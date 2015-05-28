@@ -26,6 +26,7 @@
                             <tr>
                                 <td class="cart_product">
                                     <a href="{{route('store.product',['id' => $k])}}">
+                                        {{-- a linha abaixo define uma instancia de product referente a busca pelo id $k --}}
                                         {{--*/ $p = $product->find($k) /*--}}
                                         @if(count($p->images))
                                             <img src="{{url('uploads/images/products/'.$k.'/'.$p->images->first()->id.'.'.$p->images->first()->extension)}}" width="80" alt=""/>

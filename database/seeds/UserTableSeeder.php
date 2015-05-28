@@ -13,11 +13,17 @@ class UserTableSeeder extends Seeder
 
         $faker = Faker::create();
 
+        User::create([
+            'name' => 'Alex',
+            'email' => 'alex11jgt@hotmail.com',
+            'password' => Hash::make('00ag00'),
+        ]);
+
         foreach (range(1, 8) as $i) {
             User::create([
-                    'name' => $faker->name(),
-                    'email' => $faker->email(),
-                    'password' => Hash::make($faker->word())
+                'name' => $faker->name(),
+                'email' => $faker->email(),
+                'password' => Hash::make($faker->word()),
             ]);
         }
     }
