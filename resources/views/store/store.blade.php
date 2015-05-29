@@ -102,11 +102,8 @@
 <section>
     <div class="container">
         <div class="row">
-
             @yield('categories')
-
             @yield('content')
-
         </div>
     </div>
     <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -120,7 +117,6 @@
 </section>
 
 <footer id="footer"><!--Footer-->
-
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
@@ -129,7 +125,6 @@
             </div>
         </div>
     </div>
-
 </footer><!--/Footer-->
 
 <script src="{{elixir('js/all.js')}}"></script>

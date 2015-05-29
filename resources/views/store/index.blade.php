@@ -15,6 +15,5 @@
             <h2 class="title text-center">Recommended Products</h2>
             @include('store.partial.products', ['products' => $prodRecommended])
         </div><!--recommended-->
-
     </div>
 @endsection

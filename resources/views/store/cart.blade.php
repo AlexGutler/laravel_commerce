@@ -60,18 +60,25 @@
                                     <p>Carrinho vazio...</p>
                                 </td>
                             </tr>
+                            <tr class="cart_menu">
+                                <td colspan="6">
+                                    <div class="pull-right">
+                                        <a href="{{url('/')}}" class="btn change-cart btn-warning" >Continuar a comprar</a>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforelse
+                        @if(count($cart->all()))
+                            <tr class="cart_menu">
+                                <td colspan="6">
+                                    <div class="pull-right">
+                                        <span style="margin-right: 35px">Total: R$ {{number_format($cart->getTotal(), 2)}}</span>
+                                        <a href="{{route('checkout.place')}}" class="btn change-cart btn-success" >Comprar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endif
 
-                        <tr class="cart_menu">
-
-                            <td colspan="6">
-                                <div class="pull-right">
-                                    <span style="margin-right: 35px">Total: R$ {{number_format($cart->getTotal(), 2)}}</span>
-                                    <div class="btn change-cart btn-success">Comprar</div>
-                                </div>
-                            </td>
-
-                        </tr>
                     </tbody>
                 </table>
 
