@@ -47,8 +47,7 @@ class AdminProductsController extends Controller {
         $product->save();
 
         // 'sincroniza as tags do produto'
-        $syncTags = $this->syncTags($request, $tagModel);
-        $product->tags()->sync($syncTags);
+        $product->tags()->sync($this->syncTags($request, $tagModel));
 
         return redirect()->route('admin.products.index');
     }
@@ -143,33 +142,25 @@ class AdminProductsController extends Controller {
         return redirect()->route('admin.products.images', ['id' => $product->id]);
     }
 
+    /**
+     * @param Requests\ProductRequest $request
+     * @param Tag $tagModel
+     * @return array
+     */
     public function syncTags(Requests\ProductRequest $request, Tag $tagModel)
     {
         // recebo as tags via request removendo espaço entre caracteres
         $tagsReplace = str_replace(' ', '', $request->get('tags'));
         // crio o array de tags separadas por vírgula
         $tags = explode(',', $tagsReplace);
-        // instancio o array que vai guardar os ids tags tags relacionadas
-        $syncTags = array();
+        // instancio o array que vai guardar os ids das tags relacionadas
+        $syncTags = [];
         foreach($tags as $tag)
         {
-            // consulta para saber se já tem uma Tag com esse nome no banco
-            $count = $tagModel->where('name', '=', $tag)->count();
-
-            // se não existir, adiciono o registro e coloco o id de retorno no array ralacionado,
-            // senão busco o id da Tag e adiciono no array relacionado
-            if ($count == 0)
-            {
-                $tagAux = $tagModel::create(['name' => $tag]);
-                $syncTags[] = $tagAux->id;
-            }
-            else
-            {
-                $tagAux = $tagModel->where('name', '=', $tag)->first();
-                $syncTags[] = $tagAux->id;
-            }
+            // verifica se a Tag já existe no banco, caso contrário inseri
+            $tagAux = $tagModel->firstOrCreate(['name' => $tag]);
+            $syncTags[] = $tagAux->id;
         }
-
         return $syncTags;
     }
 

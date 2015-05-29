@@ -6,7 +6,6 @@ class Kernel extends HttpKernel {
 
 	/**
 	 * The application's global HTTP middleware stack.
-	 *
 	 * @var array
 	 */
 	protected $middleware = [
@@ -20,13 +19,13 @@ class Kernel extends HttpKernel {
 
 	/**
 	 * The application's route middleware.
-	 *
 	 * @var array
 	 */
 	protected $routeMiddleware = [
 		'auth' => 'CodeCommerce\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+		'auth.admin' => 'CodeCommerce\Http\Middleware\AdminAuthenticate',
 		'guest' => 'CodeCommerce\Http\Middleware\RedirectIfAuthenticated',
-	];
+    ];
 
 }

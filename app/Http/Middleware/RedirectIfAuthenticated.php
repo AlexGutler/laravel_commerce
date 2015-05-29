@@ -15,7 +15,6 @@ class RedirectIfAuthenticated {
 
 	/**
 	 * Create a new filter instance.
-	 *
 	 * @param  Guard  $auth
 	 * @return void
 	 */
@@ -26,17 +25,16 @@ class RedirectIfAuthenticated {
 
 	/**
 	 * Handle an incoming request.
-	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  \Closure  $next
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->check())
-		{
-			return new RedirectResponse(url('/home'));
-		}
+//		if ($this->auth->check())
+//		{
+//			return new RedirectResponse(url('/home'));
+//		}
 
 		return $next($request);
 	}

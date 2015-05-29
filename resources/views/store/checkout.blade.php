@@ -12,7 +12,7 @@
                     <h4>Pedido Gerado com Sucesso!</h4>
                     <p>Cliente: {{$order->user->name}}</p>
                     <p>Total: R$ {{number_format($order->total, 2)}} </p>
-                    <p><a href="{{url('/')}}" class="btn change-cart btn-success" >Continuar a comprar</a></p>
+                    <p><a href="{{url('/')}}" class="btn change-cart btn-success" >Home</a></p>
                 </div>
             </div>
         </div>
