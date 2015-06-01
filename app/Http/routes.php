@@ -11,7 +11,7 @@
 */
 
 // Rotas admin
-Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin', 'where' => ['id' => '[0-9]+']], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin'], 'where' => ['id' => '[0-9]+']], function(){
     // categories routes
     Route::group(['prefix' => 'categories'], function(){
         Route::get('', ['as' => 'admin.categories.index', 'uses' => 'AdminCategoriesController@index']);

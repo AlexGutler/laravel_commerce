@@ -30,11 +30,6 @@ class AdminAuthenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
-        if ($this->auth->guest())
-        {
-            return $request->ajax() ? response('Unauthorized.', 401) : redirect()->guest('auth/login');
-        }
-
         if(!$this->auth->user()->isAdmin)
         {
             $errors = new MessageBag(['Unauthorized. Access Denied']);
