@@ -64,4 +64,8 @@ class Cart
         return $total;
     }
 
+    public function getQtd($id)
+    {
+        return $this->items[$id]['qtd'];
+    }
 }
