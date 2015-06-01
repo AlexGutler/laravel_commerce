@@ -41,8 +41,21 @@ class CartController extends Controller
 
         Session::set('cart', $cart);
 
+        //return json_encode(['qtd' => $cart->getQtd($id)]);
+        return redirect()->route('cart');
+    }
+
+    public function up($id)
+    {
+        $cart = $this->getCart();
+
+        $product = Product::find($id);
+
+        $cart->add($id, $product->name, $product->price);
+
+        Session::set('cart', $cart);
+
         return json_encode(['qtd' => $cart->getQtd($id)]);
-        //return redirect()->route('cart');
     }
 
     public function remove($id)

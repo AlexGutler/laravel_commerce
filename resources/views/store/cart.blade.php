@@ -43,12 +43,12 @@
                                     R$ {{ number_format($item['price'], 2) }}
                                 </td>
                                 <td class="cart_quantity">
-                                    {{--<a href="{{route('cart.remove',['id' => $k])}}" class="btn btn-down-qtd"><i class="fa fa-minus"></i></a>--}}
-                                    <button class="btn btn-down-qtd"><i class="fa fa-minus"></i></button>
+                                    <a href="{{route('cart.remove',['id' => $k])}}" class="btn btn-down-qtd"><i class="fa fa-minus"></i></a>
+                                    {{--<button class="btn btn-down-qtd"><i class="fa fa-minus"></i></button>--}}
                                         <input type="text" name="qtd" value="{{$item['qtd']}}" disabled style="width: 30px; text-align: center; ">
-                                        <input type="hidden" name="id" value="{{$k}}" class="id_product"/>
-                                    {{--<a href="{{route('cart.add',['id' => $k])}}" class="btn btn-up-qtd"><i class="fa fa-plus"></i></a>--}}
-                                    <button class="btn btn-up-qtd"><i class="fa fa-plus"></i></button>
+                                        {{--<input type="hidden" name="id" value="{{$k}}" class="id_product"/>--}}
+                                    <a href="{{route('cart.add',['id' => $k])}}" class="btn btn-up-qtd"><i class="fa fa-plus"></i></a>
+                                    {{--<button class="btn btn-up-qtd"><i class="fa fa-plus"></i></button>--}}
                                 </td>
                                 <td class="cart_total">
                                     <p class="cart_total_price">R$ {{number_format($item['price'] * $item['qtd'], 2)}}</p>
