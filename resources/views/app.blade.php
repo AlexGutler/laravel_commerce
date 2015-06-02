@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     @yield('title', '<title>CodeCommerce</title>')
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{elixir('css/all.css')}}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -32,10 +32,12 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-					<li class="@yield('categories-active')"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
-                    <li class="@yield('products-active')"><a href="{{ route('admin.products.index') }}">Products</a></li>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    @if (!Auth::guest() and Auth::user()->isAdmin)
+                        <li class="@yield('categories-active')"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
+                        <li class="@yield('products-active')"><a href="{{ route('admin.products.index') }}">Products</a></li>
+                    @endif
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

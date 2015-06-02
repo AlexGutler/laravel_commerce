@@ -59,7 +59,7 @@ Route::get('/cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartControl
 Route::get('checkout/placeorder', ['middleware' => 'auth', 'as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
 
 //Route::get('/exemplo', 'WelcomeController@exemplo');
-//Route::get('home', 'HomeController@index');
+Route::get('home', 'StoreController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

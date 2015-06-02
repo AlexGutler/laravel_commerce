@@ -52,7 +52,7 @@
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{route('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="{{ url('/auth/login') }}"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
