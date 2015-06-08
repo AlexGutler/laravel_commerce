@@ -1,5 +1,6 @@
 <?php namespace CodeCommerce\Http\Controllers;
 
+use CodeCommerce\Events\CheckoutEvent;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
@@ -22,13 +23,16 @@ class CheckoutController extends Controller {
         {
             return false;
         }
+
         $cart = Session::get('cart');
+
         if ($cart->getTotal() > 0)
         {
             $order = $orderModel->create([
                 'user_id' => Auth::user()->id,
                 'total' => $cart->getTotal()
             ]);
+
             foreach($cart->all() as $k=>$item)
             {
                 $order->items()->create([
@@ -38,9 +42,16 @@ class CheckoutController extends Controller {
                     'total' => $item['qtd'] * $item['price']
                 ]);
             }
+
+            Session::forget('cart');
+            //$cart->clear();
+
+            event(new CheckoutEvent(Auth::user(), $order));
+
+            return view('store.checkout', compact('order', 'cart'));
         }
-        Session::forget('cart');
-        return view('store.checkout', compact('order'));
+
+        return view('store.checkout', ['cart' => 'empty']);
     }
 
 }

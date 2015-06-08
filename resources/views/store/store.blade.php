@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <title>@yield('title', 'Home | CodeCommerce')</title>
 
     {{--<link href="{{asset('css/all.css')}}" rel="stylesheet">--}}
@@ -49,10 +50,15 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                            <li><a href="{{route('account.orders')}}"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="{{route('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="{{ url('/auth/login') }}"><i class="fa fa-lock"></i> Login</a></li>
+
+                            @if(Auth::guest())
+                                <li><a href="{{url('/auth/login')}}"><i class="fa fa-lock"></i> Login</a></li>
+                                <li><a href="{{url('/auth/register')}}"><i class="fa fa-lock"></i> Register</a></li>
+                            @else
+                                <li><a href="{{url('/auth/logout')}}"><i class="fa fa-lock"></i> Logout ({{Auth::user()->name}})</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

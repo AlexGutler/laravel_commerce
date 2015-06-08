@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,6 +37,7 @@
                     @if (!Auth::guest() and Auth::user()->isAdmin)
                         <li class="@yield('categories-active')"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
                         <li class="@yield('products-active')"><a href="{{ route('admin.products.index') }}">Products</a></li>
+                        <li class="@yield('orders-active')"><a href="{{ route('admin.orders.index') }}">Orders</a></li>
                     @endif
 				</ul>
 
@@ -60,7 +61,6 @@
 	@yield('content')
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{elixir('js/all.js')}}"></script>
 </body>
 </html>

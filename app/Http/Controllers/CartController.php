@@ -4,6 +4,7 @@ use CodeCommerce\Cart;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Product;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\Console\Input\Input;
 
@@ -55,6 +56,7 @@ class CartController extends Controller
 
         Session::set('cart', $cart);
 
+        //return Response::json(['qtd' => $cart->getQtd($id)]);
         return json_encode(['qtd' => $cart->getQtd($id)]);
     }
 
@@ -77,6 +79,7 @@ class CartController extends Controller
 
         Session::set('cart', $cart);
 
+        //return Response::json(['qtd' => $cart->getQtd($id)]);
         return json_encode(['qtd' => $cart->getQtd($id)]);
     }
 

@@ -6067,6 +6067,10 @@ h2.title {
 .bs-callout-info h4 {
     color: #5bc0de;
 }
+
+.asterisk {color: #FD8A3F; font-size: 10px; font-weight: bold;}
+
+.error-input {border-color: #F00;}
 /* lg */ 
 @media (min-width: 1200px) {
 

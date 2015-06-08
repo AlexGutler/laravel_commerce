@@ -35,4 +35,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('CodeCommerce\Order');
     }
+
+	public function address()
+	{
+		return $this->hasMany('CodeCommerce\UserAddress');
+	}
 }

@@ -8,7 +8,7 @@ $(document).ready(function(){
         var qtdAtual = $(campoQtd).val();
         //var idProduct = $(parent).find('input[type="hidden"]').val();
         var idProduct = $(campoId).val();
-        if (qtdAtual == 1) {
+        if (qtdAtual === 1) {
             tr.fadeOut('slow',function(){ $(this).remove(); });
         }
         $.get("/cart/down/"+idProduct, function(data) {
@@ -39,6 +39,41 @@ $(document).ready(function(){
             // para atribuir o total use data.total
             $(campoQtd).val(obj.qtd);
         });
+    });
+
+    /* Colocar as máscaras nos campos */
+    $("#cpf").mask("999.999.999-99");
+    $("#cep").mask("99999-999");
+    $("#telefone").mask("(99) 9999-9999");
+    $("#celular").mask("(99) 99999-9999");
+    $("#nascimento").mask("99/99/9999");
+
+    /* mostrar ou ocultar o campo de descrição do tipo de endereço Outro */
+    $('#nome_endereco').on('change', function(){
+        var current = $(this).find(":selected").val();
+        var endDesc = $('#nome_endereco_desc');
+        endDesc.removeClass('error-input');
+        endDesc.next().html('');
+        if(current == 4){
+            endDesc.removeClass('hide');
+        } else {
+            endDesc.addClass('hide');
+            endDesc.val('');
+        }
+    });
+
+    /* validar se o campo de descrição do tipo de endereço Outro foi preenchido */
+    $('#cadastro-usuario').on('submit', function(){
+        var idTipoEndereco = $('#nome_endereco').find(":selected").val();
+        if (4 == idTipoEndereco) {
+            var desc = $('#nome_endereco_desc');
+            var tipoEndereco = desc.val();
+            if (tipoEndereco == undefined || tipoEndereco == '' || tipoEndereco == null) {
+                desc.addClass('error-input');
+                desc.next().html("Este campo é obrigatório!");
+                return false;
+            }
+        }
     });
 
 });

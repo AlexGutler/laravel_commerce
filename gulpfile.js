@@ -30,7 +30,8 @@ elixir(function(mix) {
         'price-range.js',
         'jquery.prettyPhoto.js',
         'main.js',
-        'change-cart.js'
+        'maskedinput.min.js',
+        'assets.js'
     ], 'public/js/all.js');
 
     mix.version(['css/all.css', 'js/all.js']);

@@ -119,6 +119,7 @@ return [
 	|
 	*/
 
+    // fingi o envio do email em modo de desenvolvimento
 	'pretend' => false,
 
 ];

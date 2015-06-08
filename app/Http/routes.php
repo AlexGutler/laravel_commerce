@@ -14,8 +14,8 @@
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin'], 'where' => ['id' => '[0-9]+']], function(){
     // categories routes
     Route::group(['prefix' => 'categories'], function(){
-        Route::get('', ['as' => 'admin.categories.index', 'uses' => 'AdminCategoriesController@index']);
-        Route::post('', ['as' => 'admin.categories.store', 'uses' => 'AdminCategoriesController@store']);
+        Route::get('/', ['as' => 'admin.categories.index', 'uses' => 'AdminCategoriesController@index']);
+        Route::post('/', ['as' => 'admin.categories.store', 'uses' => 'AdminCategoriesController@store']);
         Route::get('/create', ['as' => 'admin.categories.create', 'uses' => 'AdminCategoriesController@create']);
         Route::get('/{id}/destroy', ['as' => 'admin.categories.destroy', 'uses' => 'AdminCategoriesController@destroy']);
         Route::get('/{id}/edit', ['as' => 'admin.categories.edit', 'uses' => 'AdminCategoriesController@edit']);
@@ -24,8 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin'], 'wher
 
     // products routes
     Route::group(['prefix' => 'products'], function(){
-        Route::get('', ['as' => 'admin.products.index', 'uses' => 'AdminProductsController@index']);
-        Route::post('', ['as' => 'admin.products.store', 'uses' => 'AdminProductsController@store']);
+        Route::get('/', ['as' => 'admin.products.index', 'uses' => 'AdminProductsController@index']);
+        Route::post('/', ['as' => 'admin.products.store', 'uses' => 'AdminProductsController@store']);
         Route::get('/create', ['as' => 'admin.products.create', 'uses' => 'AdminProductsController@create']);
         Route::get('/{id}/destroy', ['as' => 'admin.products.destroy', 'uses' => 'AdminProductsController@destroy']);
         Route::get('/{id}/edit', ['as' => 'admin.products.edit', 'uses' => 'AdminProductsController@edit']);
@@ -38,7 +38,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin'], 'wher
             Route::post('/store/{id}/product', ['as' => 'admin.products.images.store', 'uses' => 'AdminProductsController@storeImage']);
             Route::get('/destroy/{id}/image', ['as' => 'admin.products.images.destroy', 'uses' => 'AdminProductsController@destroyImage']);
         });
+    });
 
+    Route::group(['prefix' => 'orders'], function(){
+        Route::get('/', ['as' => 'admin.orders.index', 'uses' => 'AdminOrdersController@index']);
+        Route::get('/{id}/edit', ['as' => 'admin.orders.edit', 'uses' => 'AdminOrdersController@edit']);
+        Route::put('/{id}/update', ['as' => 'admin.orders.update_status', 'uses' => 'AdminOrdersController@updateStatus']);
     });
 });
 
@@ -54,12 +59,20 @@ Route::get('/cart/remove/{id}', ['as' => 'cart.remove', 'uses' => 'CartControlle
 Route::get('/cart/up/{id}', ['as' => 'cart.up', 'uses' => 'CartController@up'])->where(['id' => '[0-9]+']);
 Route::get('/cart/down/{id}', ['as' => 'cart.down', 'uses' => 'CartController@down'])->where(['id' => '[0-9]+']);
 Route::get('/cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartController@destroy'])->where(['id' => '[0-9]+']);
-//Route::post('/cart/change', ['as' => 'cart.change', 'uses' => 'CartController@change']);
 
-Route::get('checkout/placeorder', ['middleware' => 'auth', 'as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/checkout/placeorder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+    Route::get('/account/orders', ['as' => 'account.orders', 'uses' => 'UserController@orders']);
+});
+
+Route::get('evento', function(){
+    // Fomas de disparar o evento
+//    \Illuminate\Support\Facades\Event::fire(new \CodeCommerce\Events\CheckoutEvent());
+//    event(new \CodeCommerce\Events\CheckoutEvent());
+});
 
 //Route::get('/exemplo', 'WelcomeController@exemplo');
-Route::get('home', 'StoreController@index');
+Route::get('/home', 'StoreController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

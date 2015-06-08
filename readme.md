@@ -1,15 +1,13 @@
 ## CodeCommerce
 
-## Projeto Fase 11
+## Projeto Fase 14
 
-### Orders e Auth
+### Checkout
 
-Nessa fase do projeto, você terá de deixar o sistema totalmente preparado para gerar as ordens de serviços (Order e OrderItem) apenas para os usuários logados que tenham itens no carrinho de compra.
+Agora que você já aprendeu a realizar o processo de checkout, realize as seguintes tarefas:
 
-Quando o usuário clicar em fechar carrinho, a ordem de serviço deve ser gerada automaticamente.
+- No momento do registro de um novo usuário, crie os campos adicionais para que seu endereço completo seja preenchido.
 
-Caso o usuário não esteja logado, redirecione-o para a página de login antes do mesmo finalizar o pedido.
+- Na listagem de pedidos contratados pelo usuário, traga o status correto ao invés de trabalharmos com os números inteiros.
 
-Também você deverá adicionar um novo campo na tabela de usuários chamado: is_admin (boolean).
-
-A partir de agora, apenas usuários logados e com is_admin=1 poderão acessar a área administrativa de nossa loja.
+- Crie na área administrativa uma página com a listagem de todos os pedidos realizados e a possibilidade de editar o status dos mesmos.
