@@ -9,7 +9,7 @@
         <div class="content-right">
             <h2>Últimos Pedidos</h2>
 
-            <table class="my-table">
+            <table id="timeLineTable">
                 <tbody>
                     <tr>
                         <td class="stgTitle" colspan="3">Pedido <br>Realizado</td>
@@ -57,7 +57,7 @@
                     </tr>
 
                     <tr>
-                        <td id="tdFooterStage1" colspan="3" class="stgFooter completed">
+                        <td id="tdFooterStage1" colspan="3" class="stgFooter">
                             <div id="stage1_date_div" class="date" style="visibility: visible;">
                                 <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
                             </div>
@@ -66,7 +66,25 @@
                             </div>
                             <span id="stage1_ico" class="footerIco completed"></span>
                         </td>
-                        <td id="tdFooterStage2" colspan="3" class="stgFooter completed">
+                        <td id="tdFooterStage2" colspan="3" class="stgFooter">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco completed"></span>
+                        </td>
+                        <td id="tdFooterStage3" colspan="3" class="stgFooter">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco completed"></span>
+                        </td>
+                        <td id="tdFooterStage4" colspan="3" class="stgFooter">
                             <div id="stage1_date_div" class="date" style="visibility: visible;">
                                 <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
                             </div>
@@ -75,25 +93,7 @@
                             </div>
                             <span id="stage1_ico" class="footerIco processing"></span>
                         </td>
-                        <td id="tdFooterStage3" colspan="3" class="stgFooter completed">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco completed"></span>
-                        </td>
-                        <td id="tdFooterStage4" colspan="3" class="stgFooter completed">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco completed"></span>
-                        </td>
-                        <td id="tdFooterStage5" colspan="3" class="stgFooter waiting">
+                        <td id="tdFooterStage5" colspan="3" class="stgFooter">
                             <div id="stage1_date_div" class="date" style="visibility: visible;">
                                 <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
                             </div>
