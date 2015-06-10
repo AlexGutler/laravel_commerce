@@ -11,13 +11,6 @@
 
             <table class="my-table">
                 <tbody>
-                    {{--<tr>--}}
-                        {{--<th>Pedido</th>--}}
-                        {{--<th>Data</th>--}}
-                        {{--<th>Itens</th>--}}
-                        {{--<th>Valor</th>--}}
-                        {{--<th>Status (+detalhes)</th>--}}
-                    {{--</tr>--}}
                     <tr>
                         <td class="stgTitle" colspan="3">Pedido <br>Realizado</td>
                         <td class="stgTitle" colspan="3">Autorização do <br>Pagamento</td>
@@ -25,39 +18,6 @@
                         <td class="stgTitle" colspan="3">Produto(s) em <br>transporte</td>
                         <td class="stgTitle" colspan="3">Produto(s) <br>entregues(s)</td>
                     </tr>
-
-                    {{--@foreach($orders as $order)--}}
-                        {{--<tr>--}}
-                            {{--<td>--}}
-                                {{--{{$order->id}}--}}
-                                {{--<div class="trow"></div>--}}
-                            {{--</td>--}}
-                            {{--<td>{{ date_format($order->created_at, "d/m/Y")}}</td>--}}
-                            {{--<td>--}}
-                                {{--<ul>--}}
-                                    {{--@foreach($order->items as $item)--}}
-                                        {{--<li>{{$item->product->name}}</li>--}}
-                                    {{--@endforeach--}}
-                                {{--</ul>--}}
-                            {{--</td>--}}
-                            {{--<td>R$ {{number_format($order->total, 2)}}</td>--}}
-                            {{--<td>--}}
-                                {{--@if($order->status == 0)--}}
-                                    {{--Pedido Realizado--}}
-                                {{--@elseif($order->status == 1)--}}
-                                    {{--Autorização de Pagamento--}}
-                                {{--@elseif($order->status == 2)--}}
-                                    {{--Nota fiscal eletrônica/Separação em estoque--}}
-                                {{--@elseif($order->status == 3)--}}
-                                    {{--Produto(s) em transporte--}}
-                                {{--@elseif($order->status == 4)--}}
-                                    {{--Produto(s) entregue(s)--}}
-                                {{--@elseif($order->status == 5)--}}
-                                    {{--Pedido Cancelado--}}
-                                {{--@endif--}}
-                            {{--</td>--}}
-                        {{--</tr>--}}
-                    {{--@endforeach--}}
 
                     <tr>
                         <td id="tdLineFirst" class="stgTdLinePrev" style="width: 10.0%;"></td>
@@ -96,6 +56,53 @@
                         <td id="tdLineLast" style="width: 10.0%;"></td>
                     </tr>
 
+                    <tr>
+                        <td id="tdFooterStage1" colspan="3" class="stgFooter completed">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco completed"></span>
+                        </td>
+                        <td id="tdFooterStage2" colspan="3" class="stgFooter completed">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco processing"></span>
+                        </td>
+                        <td id="tdFooterStage3" colspan="3" class="stgFooter completed">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco completed"></span>
+                        </td>
+                        <td id="tdFooterStage4" colspan="3" class="stgFooter completed">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco completed"></span>
+                        </td>
+                        <td id="tdFooterStage5" colspan="3" class="stgFooter waiting">
+                            <div id="stage1_date_div" class="date" style="visibility: visible;">
+                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
+                            </div>
+                            <div class="date" style="visibility: visible;">
+                                Hora: <span id="stage1_hour">15:30</span>
+                            </div>
+                            <span id="stage1_ico" class="footerIco prevision"></span>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

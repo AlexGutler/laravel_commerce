@@ -11,7 +11,8 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#ID</th>
+                        <th>Pedido</th>
+                        <th>Data</th>
                         <th>Itens</th>
                         <th>Valor</th>
                         <th>Status</th>
@@ -21,6 +22,7 @@
                     @foreach($orders as $order)
                         <tr>
                             <td>{{$order->id}}</td>
+                            <td>{{ date_format($order->created_at, "d/m/Y")}}</td>
                             <td>
                                 <ul>
                                     @foreach($order->items as $item)

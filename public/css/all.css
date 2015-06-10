@@ -6099,24 +6099,18 @@ h2.title {
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 0;
     margin: 0;
+    color: #898989;
 }
 
 .my-table > tbody > tr > td, .my-table > tbody > tr > th, .my-table > tfoot > tr > td,
 .my-table > tfoot > tr > th, .my-table > thead > tr > td, .my-table > thead > tr > th
 .my-table > tbody > tr > td, .my-table > tbody > tr > th, .my-table > tfoot > tr > td,
 .my-table > tfoot > tr > th, .my-table > thead > tr > td, .my-table > thead > tr > th {
-    line-height: 1.42857; vertical-align: top;
+    line-height: 1.15; vertical-align: top;
 }
-
-/*.my-table td {*/
-    /*padding: 0;*/
-    /*vertical-align: top;*/
-    /*text-align: center;*/
-    /*overflow: hidden;*/
-/*}*/
 
 .stgTitle{
     font-weight: bold;
@@ -6124,6 +6118,8 @@ h2.title {
     color: #898989;
     font-size: 1em;
 }
+
+.stgFooter .date {color: #666;}
 
 .bglineColorCompleted {
     background-color: #21B46D;
@@ -6135,10 +6131,10 @@ h2.title {
     background-color: #868686;
 }
 .bgLineColorCompleted2Processing {
-    background: transparent -moz-linear-gradient(left center , #21B46D 0%, #FFEA00 100%) repeat scroll 0% 0%;
+    background: transparent -moz-linear-gradient(left center , #21B46D 0%, #FFEA00 100%) repeat scroll 0 0;
 }
 .bgLineColorProcessing2Waiting {
-    background: transparent -moz-linear-gradient(left center , #FFEA00 0%, #868686 100%) repeat scroll 0% 0%;
+    background: transparent -moz-linear-gradient(left center , #FFEA00 0%, #868686 100%) repeat scroll 0 0;
 }
 .stgTdIcon {
     width: 60px;
@@ -6210,6 +6206,19 @@ div.bgLine {
 .stgIcon.certified.processing   { background-position: -2px  -136px ;}
 .stgIcon.certified.completed    { background-position: -2px  -201px ;}
 .stgIcon.certified.canceled     { background-position: -2px  -265px ;}
+
+.my-table .footerIco {
+    background:url("/images/tfooter.png") no-repeat;
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #000;
+}
+.my-table .footerIco.disabled   {width: 94px ; height: 17px; visibility: hidden;}
+.my-table .footerIco.waiting    {width: 94px ; height: 17px; visibility: hidden;}
+.my-table .footerIco.processing {width: 94px ; height: 17px; background-position:  -192px  -3px;}
+.my-table .footerIco.completed  {width: 94px ; height: 17px; background-position:  0       -3px;}
+.my-table .footerIco.canceled   {width: 94px ; height: 17px; background-position:  -96px   -3px;}
+.my-table .footerIco.prevision  {width: 94px ; height: 17px; background-position:  -288px  -3px;}
 /* lg */ 
 @media (min-width: 1200px) {
 
