@@ -63,6 +63,17 @@ Route::get('/cart/destroy/{id}', ['as' => 'cart.destroy', 'uses' => 'CartControl
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/checkout/placeorder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
     Route::get('/account/orders', ['as' => 'account.orders', 'uses' => 'UserController@orders']);
+
+    Route::group(['prefix' => '/ControlPanel/panel'], function(){
+        Route::get('/home', ['as' => 'panel.home', 'uses' => 'UserController@home']);
+        Route::get('/LastOrders', ['as' => 'panel.last_orders', 'uses' => 'UserController@lastOrders']);
+        Route::get('/OpenedOrders', ['as' => 'panel.opened_orders', 'uses' => 'UserController@openedOrders']);
+        Route::get('/DeliveredOrders', ['as' => 'panel.delivered_orders', 'uses' => 'UserController@deliveredOrders']);
+        Route::get('/OrdersByNumber', ['as' => 'panel.orders_by_number', 'uses' => 'UserController@ordersByNumber']);
+        Route::get('/OrdersByDate', ['as' => 'panel.orders_by_date', 'uses' => 'UserController@ordersByDate']);
+        Route::get('/AllOrders', ['as' => 'panel.all_orders', 'uses' => 'UserController@allOrders']);
+    });
+
 });
 
 Route::get('evento', function(){

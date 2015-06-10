@@ -15,4 +15,40 @@ class UserController extends Controller {
         return view('store.orders', compact('orders'));
     }
 
+
+    public function home()
+    {
+        return view('store.control_panel.home');
+    }
+
+    public function lastOrders()
+    {
+        $orders = Auth::user()->orders;
+        return view('store.control_panel.orders.last_orders', compact('orders'));
+    }
+
+    public function openedOrders()
+    {
+        return 'Pedidos em Aberto';
+    }
+
+    public function deliveredOrders()
+    {
+        return 'Pedidos Entregues';
+    }
+
+    public function ordersByNumber()
+    {
+        return 'Pedidos por Número';
+    }
+
+    public function ordersByDate()
+    {
+        return 'Pedidos por Data';
+    }
+
+    public function allOrders()
+    {
+        return 'Todos Pedidos';
+    }
 }
