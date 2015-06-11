@@ -2,8 +2,6 @@
 
 use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\User;
-use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Validator;
 
