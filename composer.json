@@ -5,9 +5,8 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*",
+		"laravel/framework": "5.1.*",
         "laravelcollective/html": "~5.0",
-		"fzaninotto/faker": "~1.4",
 		"league/flysystem-dropbox": "~1.0"
 	},
 	"require-dev": {
