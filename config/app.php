@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'America/Sao_Paulo',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'br',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'br',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -139,7 +139,9 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+//        'Illuminate\Html\HtmlServiceProvider',
         'Collective\Html\HtmlServiceProvider',
+        LaravelPagseguro\LaravelPagseguroServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -200,6 +202,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form'      => 'Collective\Html\FormFacade',
         'Html'      => 'Collective\Html\HtmlFacade',
+//        'Form'      => 'Illuminate\Html\FormFacade',
+//        'Html'      => 'Illuminate\Html\HtmlFacade',
 
 	],
 

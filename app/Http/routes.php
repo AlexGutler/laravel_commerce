@@ -82,6 +82,30 @@ Route::get('evento', function(){
 //    event(new \CodeCommerce\Events\CheckoutEvent());
 });
 
+//Route::get('pagseguro', 'CheckoutController@pagSeguro');
+Route::get('/paymentreturn/', function(){
+    $transaction = $_GET['transaction'];
+    $lastOrder = Session::get('lastOrder');
+    //Session::forget('lastOrder');
+    return 'Compra realizada com sucesso! - '.$lastOrder->user->name.' - '.$transaction;
+});
+
+Route::post('/paymentnotification', ['middleware' => 'cors'], function(\PHPSC\PagSeguro\Purchases\Transactions\Locator $service){
+    header("access-control-allow-origin: https://sandbox.pagseguro.uol.com.br");
+    if(isset($_POST['notificationType']) && $_POST['notificationType'] == 'transaction'){
+        $notificationCode = $_POST['notificationCode'];
+        $transaction = $service->getByCode($notificationCode);
+        \CodeCommerce\OrderNotification::create([
+            'notification' => $notificationCode,
+            'order_id' => $transaction->getDetails()->getReference()
+        ]);
+    }
+});
+
+Route::get('/pagseguroFind', 'CheckoutController@pagSeguroFindTransaction');
+
+
+
 //Route::get('/exemplo', 'WelcomeController@exemplo');
 Route::get('/home', 'StoreController@index');
 Route::controllers([
@@ -89,3 +113,59 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
     'teste' => 'TesteController'
 ]);
+
+
+function curlExec($url, $post = NULL, array $header = array()){
+
+    //Inicia o cURL
+    $ch = curl_init($url);
+
+    //Pede o que retorne o resultado como string
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    //Envia cabeçalhos (Caso tenha)
+    if(count($header) > 0) {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    }
+
+    //Envia post (Caso tenha)
+    if($post !== null) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    }
+
+    //Ignora certificado SSL
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    //Manda executar a requisição
+    $data = curl_exec($ch);
+
+    //Fecha a conexão para economizar recursos do servidor
+    curl_close($ch);
+
+    //Retorna o resultado da requisição
+
+    return $data;
+}
+Route::get('/testeResposta', function(){
+    $transaction = 'DCEC1B44EA934ED084F9B69E45D8081F';
+    $email = env('PAGSEGURO_EMAIL');
+    $token = env('PAGSEGURO_TOKEN');
+    $url = 'https://ws.pagseguro.uol.com.br/v2/transactions/'.$transaction.'?email='.$email.'&token='.$token;
+
+    $transaction = curlExec($url);
+
+    if($transaction == 'Unauthorized') {
+        return 'Unauthorized - Entre em contato com o suporte!';
+        exit;//Mantenha essa linha para evitar que o código prossiga
+    }
+
+    $transaction = simplexml_load_string($transaction);
+
+    if(count($transaction->error) > 0) {
+        //Insira seu código avisando que o sistema está com problemas
+        //sugiro enviar um e-mail avisando para alguém fazer a manutenção
+        return 'Erro -> '.var_dump($transaction);
+    }
+
+    return 'Certo - '.$transaction->sender->email;
+});

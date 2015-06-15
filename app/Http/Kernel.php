@@ -26,6 +26,7 @@ class Kernel extends HttpKernel {
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'auth.admin' => 'CodeCommerce\Http\Middleware\AdminAuthenticate',
 		'guest' => 'CodeCommerce\Http\Middleware\RedirectIfAuthenticated',
+		'cors' => 'CodeCommerce\Http\Middleware\CORS',
     ];
 
 }
