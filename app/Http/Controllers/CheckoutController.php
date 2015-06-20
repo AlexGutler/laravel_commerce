@@ -51,48 +51,26 @@ class CheckoutController extends Controller {
             }
 
             Session::forget('cart');
-            //$cart->clear();
-
-            Session::set('lastOrder', $order);
-//
             //event(new CheckoutEvent(Auth::user(), $order));
+            //$checkout->setCustomer(Auth::user()->email);
 
             $checkout->setReference($order->id);
-//            $checkout->setCustomer(Auth::user()->email);
-
             $response = $checkoutService->checkout($checkout->getCheckout());
             return redirect($response->getRedirectionUrl());
-
             // return view('store.checkout', compact('order', 'cart'));
         }
 
         return view('store.checkout', ['cart' => 'empty']);
     }
 
-
-    public function pagSeguro(CheckoutService $checkoutService)
-    {
-        $checkout = $checkoutService->createCheckoutBuilder()
-            ->addItem(new Item(1, 'Televisão LED 500', 8999.99))
-            ->addItem(new Item(2, 'Video-game mega ultra blaster', 799.99))
-            ->getCheckout();
-
-        $response = $checkoutService->checkout($checkout);
-
-        return redirect($response->getRedirectionUrl());
-    }
-
-    public function pagSeguroFindTransaction(Locator $service)
-    {
-        try {
-            //CD69A88BA95A467BA8048E1E1D4F4FCD
-            $transaction = $service->getByCode('DCEC1B44EA934ED084F9B69E45D8081F');
-            var_dump($transaction->getDetails()->getReference());
-            //var_dump($transaction);
-            //var_dump($transaction->getDetails()->getStatus()); // Exibe na tela a transação
-            //print_r($transaction->getItems()->get(0)->getDescription()); // Exibe na tela a transação
-        } catch (PagSeguroException $error) { // Caso ocorreu algum erro
-            echo $error->getMessage(); // Exibe na tela a mensagem de erro
-        }
+    public function paymentReturn(Locator $service, Order $orderModel){
+        $transaction = $_GET['transaction'];
+        $transaction_find = $service->getByCode($transaction);
+        $orderId = $transaction_find->getDetails()->getReference();
+        $order = $orderModel->find($orderId);
+        $order->update(['transaction' => $transaction]);
+        //$lastOrder = Session::get('lastOrder');
+        //Session::forget('lastOrder');
+        return view('store.checkout', ['order' => $order, 'cart' => '']);
     }
 }
