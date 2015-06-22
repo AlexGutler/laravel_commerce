@@ -63,14 +63,14 @@ class CheckoutController extends Controller {
         return view('store.checkout', ['cart' => 'empty']);
     }
 
-    public function paymentReturn(Locator $service, Order $orderModel){
-        $transaction = $_GET['transaction'];
-        $transaction_find = $service->getByCode($transaction);
-        $orderId = $transaction_find->getDetails()->getReference();
+    public function paymentReturn(Locator $service, Order $orderModel)
+    {
+        $transaction_id = $_GET['transaction'];
+        $transaction = $service->getByCode($transaction_id);
+        $orderId = $transaction->getDetails()->getReference();
         $order = $orderModel->find($orderId);
-        $order->update(['transaction' => $transaction]);
-        //$lastOrder = Session::get('lastOrder');
-        //Session::forget('lastOrder');
+        $order->update(['transaction' => $transaction_id]);
+
         return view('store.checkout', ['order' => $order, 'cart' => '']);
     }
 }

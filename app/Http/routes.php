@@ -76,16 +76,8 @@ Route::group(['middleware'=>'auth'], function(){
 
 });
 
-Route::get('evento', function(){
-    // Fomas de disparar o evento
-//    \Illuminate\Support\Facades\Event::fire(new \CodeCommerce\Events\CheckoutEvent());
-//    event(new \CodeCommerce\Events\CheckoutEvent());
-});
-
 //Route::get('pagseguro', 'CheckoutController@pagSeguro');
-Route::get('/paymentreturn/', ['as' => 'panel.home', 'uses' => 'CheckoutController@paymentReturn']);
-
-
+Route::get('/paymentreturn/', ['as' => 'paymentreturn', 'uses' => 'CheckoutController@paymentReturn']);
 
 //Route::get('/exemplo', 'WelcomeController@exemplo');
 Route::get('/home', 'StoreController@index');
@@ -94,3 +86,9 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
     'teste' => 'TesteController'
 ]);
+
+Route::get('evento', function(){
+    // Fomas de disparar o evento
+//    \Illuminate\Support\Facades\Event::fire(new \CodeCommerce\Events\CheckoutEvent());
+//    event(new \CodeCommerce\Events\CheckoutEvent());
+});
