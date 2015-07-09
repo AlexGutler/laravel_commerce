@@ -50,7 +50,7 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="{{route('account.orders')}}"><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="{{route('panel.home')}}"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="{{route('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 
                             @if(Auth::guest())
@@ -87,7 +87,7 @@
                                     <li><a href="#">Product Details</a></li>
                                     <li><a href="#">Checkout</a></li>
                                     <li><a href="{{route('cart')}}">Cart</a></li>
-                                    <li><a href="#">Login</a></li>
+                                    <li><a href="{{url('/auth/login')}}">Login</a></li>
                                 </ul>
                             </li>
 

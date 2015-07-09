@@ -9,102 +9,54 @@
         <div class="content-right">
             <h2>Últimos Pedidos</h2>
 
-            <table id="timeLineTable">
-                <tbody>
-                    <tr>
-                        <td class="stgTitle" colspan="3">Pedido <br>Realizado</td>
-                        <td class="stgTitle" colspan="3">Autorização do <br>Pagamento</td>
-                        <td class="stgTitle" colspan="3">Nota fiscal <br>eletrônica</td>
-                        <td class="stgTitle" colspan="3">Produto(s) em <br>transporte</td>
-                        <td class="stgTitle" colspan="3">Produto(s) <br>entregues(s)</td>
-                    </tr>
-
-                    <tr>
-                        <td id="tdLineFirst" class="stgTdLinePrev" style="width: 10.0%;"></td>
-                        <td class="stgTdIcon">
-                            <div class="bgLine firstStage bglineColorCompleted"></div>
-                            <div id="stgIcon1" class="stgIcon order completed"></div>
-                        </td>
-                        <td class="stgTdLineBetween" colspan="2" style="width: 20.0%;">
-                            <div class="bgLine bglineColorCompleted"></div>
-                        </td>
-                        <td class="stgTdIcon">
-                            <div class="bgLine bglineColorCompleted"></div>
-                            <div id="stgIcon2" class="stgIcon payment completed"></div>
-                        </td>
-                        <td class="stgTdLineBetween" colspan="2" style="width: 20.0%;">
-                            <div class="bgLine bglineColorCompleted"></div>
-                        </td>
-                        <td class="stgTdIcon">
-                            <div class="bgLine bglineColorCompleted"></div>
-                            <div id="stgIcon2" class="stgIcon preparation completed"></div>
-                        </td>
-                        <td class="stgTdLineBetween" colspan="2" style="width: 20.0%;">
-                            <div class="bgLine bgLineColorCompleted2Processing"></div>
-                        </td>
-                        <td class="stgTdIcon">
-                            <div class="bgLine bglineColorProcessing"></div>
-                            <div id="stgIcon2" class="stgIcon transport processing"></div>
-                        </td>
-                        <td class="stgTdLineBetween" colspan="2" style="width: 20.0%;">
-                            <div class="bgLine bgLineColorProcessing2Waiting"></div>
-                        </td>
-                        <td class="stgTdIcon">
-                            <div class="bgLine lastStage bglineColorWaiting"></div>
-                            <div id="stgIcon5" class="stgIcon delivered waiting"></div>
-                        </td>
-                        <td id="tdLineLast" style="width: 10.0%;"></td>
-                    </tr>
-
-                    <tr>
-                        <td id="tdFooterStage1" colspan="3" class="stgFooter">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco completed"></span>
-                        </td>
-                        <td id="tdFooterStage2" colspan="3" class="stgFooter">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco completed"></span>
-                        </td>
-                        <td id="tdFooterStage3" colspan="3" class="stgFooter">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco completed"></span>
-                        </td>
-                        <td id="tdFooterStage4" colspan="3" class="stgFooter">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco processing"></span>
-                        </td>
-                        <td id="tdFooterStage5" colspan="3" class="stgFooter">
-                            <div id="stage1_date_div" class="date" style="visibility: visible;">
-                                <strong>Data: <span id="stage1_date">05/06/2015</span></strong>
-                            </div>
-                            <div class="date" style="visibility: visible;">
-                                Hora: <span id="stage1_hour">15:30</span>
-                            </div>
-                            <span id="stage1_ico" class="footerIco prevision"></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="orders">
+                <table class="table table-hover orders-table">
+                    {{--<thead>--}}
+                        {{--<tr class="tr-thead">--}}
+                            {{--<th>Pedido</th>--}}
+                            {{--<th>Qtd Itens</th>--}}
+                            {{--<th>Total</th>--}}
+                            {{--<th>Status</th>--}}
+                            {{--<th>Detalhes</th>--}}
+                        {{--</tr>--}}
+                    {{--</thead>--}}
+                    <tbody>
+                        @foreach($orders as $order)
+                            <tr>
+                                <td class="col-md-2 mr">
+                                    <strong class="order-id">{{str_pad($order->id, 10, "0", STR_PAD_LEFT) }}</strong>
+                                    <p class="order-date">Data: {{ date_format($order->created_at, 'd/m/Y')}}</p>
+                                </td>
+                                <td class="col-md-2">1 item</td>
+                                <td class="col-md-2 p-strong">R$ {{number_format($order->total, 2, ',', '.')}}</td>
+                                <td class="col-md-3 p-strong text-center td-status">
+                                    @if($order->status == 0)
+                                        Pedido Realizado
+                                    @elseif($order->status == 1)
+                                        Autorização de Pagamento
+                                    @elseif($order->status == 2)
+                                        Nota fiscal eletrônica/Separação em estoque
+                                    @elseif($order->status == 3)
+                                        Produto(s) em transporte
+                                    @elseif($order->status == 4)
+                                        Produto(s) entregue(s)
+                                    @elseif($order->status == 5)
+                                        Pedido Cancelado
+                                    @endif
+                                </td>
+                                <td class="col-md-3 text-right">
+                                    <a class="btn-panel"
+                                       {{--href="{{route('panel.last_orders.details', ['id'=>$order->id])}}" role="button">--}}
+                                       href="#" role="button">
+                                        Detalhes do pedido <i class="fa fa-plus"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                {{--{!! $orders->render() !!}--}}
+            </div>
         </div>
     </div>
 @endsection

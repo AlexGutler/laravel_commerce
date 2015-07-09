@@ -2644,3 +2644,43 @@ h2.title {
 .panel-title {margin-left: 35px;}
 .btn-panel {width: 100% !important; margin-bottom: 12px;}
 .servicos {margin-top: -50px; margin-bottom: 15px;}
+
+
+.tr-thead {
+    color: #FDB453;
+    background-color: #172431;
+    border-color: #172431;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.orders-table > tbody > tr {
+    border-bottom: 1px solid #E3E3E3 !important;
+}
+.orders-table > tbody > tr > td {
+    padding: 30px 5px !important;
+    vertical-align: middle !important;
+}
+.order-id, .p-strong {
+    font-size: 16px;
+    font-weight: 800;
+}
+.order-date {
+    font-size: 12px;
+}
+.orders-table a {
+    color: #333;
+    font-size: 14px;
+}
+.orders-table a:hover {
+    color: #FDB453;
+}
+.orders-table i {
+    font-size: 16px;
+    color: #FDB453;
+    font-weight: bold;
+}
+.mr {margin-right: 100px;}
+.td-status {font-size: 13px;}
