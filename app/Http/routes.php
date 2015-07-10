@@ -71,7 +71,9 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/OpenedOrders', ['as' => 'panel.opened_orders', 'uses' => 'UserController@openedOrders']);
         Route::get('/DeliveredOrders', ['as' => 'panel.delivered_orders', 'uses' => 'UserController@deliveredOrders']);
         Route::get('/OrdersByNumber', ['as' => 'panel.orders_by_number', 'uses' => 'UserController@ordersByNumber']);
+        Route::post('/OrdersByNumber', ['as' => 'panel.post_by_number', 'uses' => 'UserController@ordersByNumber']);
         Route::get('/OrdersByDate', ['as' => 'panel.orders_by_date', 'uses' => 'UserController@ordersByDate']);
+        Route::post('/OrdersByDate', ['as' => 'panel.post_by_period', 'uses' => 'UserController@ordersByDate']);
         Route::get('/AllOrders', ['as' => 'panel.all_orders', 'uses' => 'UserController@allOrders']);
     });
 

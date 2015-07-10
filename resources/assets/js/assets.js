@@ -47,6 +47,8 @@ $(document).ready(function(){
     $("#telefone").mask("(99) 9999-9999");
     $("#celular").mask("(99) 99999-9999");
     $("#nascimento").mask("99/99/9999");
+    $("#de").mask("99/99/9999");
+    $("#ate").mask("99/99/9999");
 
     /* mostrar ou ocultar o campo de descrição do tipo de endereço Outro */
     $('#nome_endereco').on('change', function(){
@@ -75,5 +77,4 @@ $(document).ready(function(){
             }
         }
     });
-
 });

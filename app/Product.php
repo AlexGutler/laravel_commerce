@@ -33,19 +33,19 @@ class Product extends Model
         return $this->belongsToMany('CodeCommerce\Tag');
     }
 
-    // gera um atributo
-    public function getNameDescriptionAttribute()
-    {
-        return $this->name.' - '.$this->description;
-    }
-
-    // retornar as tags separadas por ','
-    public function getTagListAttribute()
-    {
-        $tags = $this->tags()->lists('name');
-
-        return implode(',', $tags);
-    }
+    // Accessors & Mutators - geram um atributos (concatenação) $p->tagList
+        // gera um atributo
+        public function getNameDescriptionAttribute()
+        {
+            return $this->name.' - '.$this->description;
+        }
+        // retornar as tags separadas por ', '
+        public function getTagListAttribute()
+        {
+            $tags = $this->tags()->lists('name');
+            // gera o implode da coleção de tags separando por ', '
+            return $tags->implode(', ');
+        }
 
     // Query Scope
     public function scopeFeatured($query)

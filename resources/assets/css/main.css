@@ -2738,3 +2738,7 @@ h2.title {
 .itens-pedido {
     margin-bottom: 25px;
 }
+
+.panel-name {margin-top: 0 !important; margin-bottom: 30px !important;}
+
+.periodo-form, .numero-form {margin-bottom: 35px;}

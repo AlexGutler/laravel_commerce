@@ -23,7 +23,7 @@ class ProductRequest extends Request {
 	{
         // http://laravel.com/docs/5.0/validation
 		return [
-            'name' => 'required|min:3|max:50',
+            'name' => 'required|min:3|max:255',
             'description' => 'required|min:10',
             'price' => 'required|numeric',
             'category_id' => 'required|numeric',

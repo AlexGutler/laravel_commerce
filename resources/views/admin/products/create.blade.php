@@ -32,7 +32,7 @@
                 {!! Form::number('price', '', ['class' => 'form-control ']) !!}
             </div>
             <div class="form-group">
-                {!! Form::label('tags', 'Tags:') !!}
+                {!! Form::label('tags', 'Tags (","):') !!}
                 {!! Form::textarea('tags', null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">

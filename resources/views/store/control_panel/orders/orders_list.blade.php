@@ -7,19 +7,10 @@
 @section('info')
     <div class="col-sm-9 padding-right">
         <div class="content-right">
-            <h2>Últimos Pedidos</h2>
+            <h2 class="panel-name">{{$panelName}}</h2>
 
             <div class="orders">
                 <table class="table table-hover orders-table">
-                    {{--<thead>--}}
-                        {{--<tr class="tr-thead">--}}
-                            {{--<th>Pedido</th>--}}
-                            {{--<th>Qtd Itens</th>--}}
-                            {{--<th>Total</th>--}}
-                            {{--<th>Status</th>--}}
-                            {{--<th>Detalhes</th>--}}
-                        {{--</tr>--}}
-                    {{--</thead>--}}
                     <tbody>
                         @foreach($orders as $order)
                             <tr>
@@ -46,7 +37,6 @@
                                 </td>
                                 <td class="col-md-3 text-right">
                                     <a class="btn-panel"
-                                       {{--href="{{route('panel.last_orders.details', ['id'=>$order->id])}}" role="button">--}}
                                        href="{{route('panel.order_detail', ['id' => $order->id])}}" role="button">
                                         Detalhes do pedido <i class="fa fa-plus"></i>
                                     </a>
@@ -55,7 +45,11 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{--{!! $orders->render() !!}--}}
+
+                @if($pagination)
+                    {!! $orders->render() !!}
+                @endif
+
             </div>
         </div>
     </div>
