@@ -24,7 +24,7 @@
                         @foreach($orders as $order)
                             <tr>
                                 <td class="col-md-2 mr">
-                                    <strong class="order-id">{{str_pad($order->id, 10, "0", STR_PAD_LEFT) }}</strong>
+                                    <strong class="order-id">{{str_pad($order->id, 8, "0", STR_PAD_LEFT) }}</strong>
                                     <p class="order-date">Data: {{ date_format($order->created_at, 'd/m/Y')}}</p>
                                 </td>
                                 <td class="col-md-2">1 item</td>
@@ -47,7 +47,7 @@
                                 <td class="col-md-3 text-right">
                                     <a class="btn-panel"
                                        {{--href="{{route('panel.last_orders.details', ['id'=>$order->id])}}" role="button">--}}
-                                       href="#" role="button">
+                                       href="{{route('panel.order_detail', ['id' => $order->id])}}" role="button">
                                         Detalhes do pedido <i class="fa fa-plus"></i>
                                     </a>
                                 </td>

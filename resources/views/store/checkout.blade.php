@@ -15,9 +15,9 @@
                 @else
                     <div class="bs-callout bs-callout-success">
                         <h4>Seu pedido foi gerado com sucesso!</h4>
-                        <h5>Número do pedido: {{$order->id}}</h5>
+                        <h5>Número do pedido: # {{str_pad($order->id, 10, "0", STR_PAD_LEFT) }}</h5>
                         <p>Cliente: {{$order->user->name}}</p>
-                        <p>Total: R$ {{number_format($order->total, 2)}} </p>
+                        <p>Total: R$ {{number_format($order->total, 2, ',', '.')}} </p>
                         <p><a href="{{url('/')}}" class="btn change-cart btn-success" >Home</a></p>
                     </div>
                 @endif

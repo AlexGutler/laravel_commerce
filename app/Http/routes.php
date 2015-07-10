@@ -66,6 +66,7 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::group(['prefix' => '/ControlPanel/panel'], function(){
         Route::get('/home', ['as' => 'panel.home', 'uses' => 'UserController@home']);
+        Route::get('/order/{id}/detail', ['as' => 'panel.order_detail', 'uses' => 'UserController@orderDetail']);
         Route::get('/LastOrders', ['as' => 'panel.last_orders', 'uses' => 'UserController@lastOrders']);
         Route::get('/OpenedOrders', ['as' => 'panel.opened_orders', 'uses' => 'UserController@openedOrders']);
         Route::get('/DeliveredOrders', ['as' => 'panel.delivered_orders', 'uses' => 'UserController@deliveredOrders']);
@@ -75,6 +76,8 @@ Route::group(['middleware'=>'auth'], function(){
     });
 
 });
+
+
 
 //Route::get('pagseguro', 'CheckoutController@pagSeguro');
 Route::get('/paymentreturn/', ['as' => 'paymentreturn', 'uses' => 'CheckoutController@paymentReturn']);

@@ -6107,7 +6107,7 @@ h2.title {
     vertical-align: middle !important;
 }
 .order-id, .p-strong {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
 }
 .order-date {
@@ -6125,8 +6125,62 @@ h2.title {
     color: #FDB453;
     font-weight: bold;
 }
+
 .mr {margin-right: 100px;}
 .td-status {font-size: 13px;}
+.title-order {margin-top: 0!important;}
+.detail-order-id {margin-top: 20px; font-weight: 800; font-size: 26px;}
+.order-checking-copy a {color: #FDB453; font-weight: 700;}
+.detail-head {margin-top: 30px; border-top: 1px solid #E3E3E3 !important; padding: 30px 0; margin-bottom: 40px;}
+.detail-head .col-md-3, .detail-head .col-md-4 {border-right: 1px solid #E3E3E3 !important; height: 120px;}
+.detail-head .col-md-3:last-child {border-right: 0 !important;}
+.order-status p {margin-bottom: 0!important;}
+.order-status span {padding-bottom: 10px;}
+
+.endTitle {
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.endEntregaCobranca {
+    font-size: 11px;
+    padding: 3px 12px;
+    float: left;
+    background-color: #393939;
+    color: #FFF;
+    line-height: normal !important;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.setaEndCob {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #393939;
+    position: absolute;
+    margin: 20px 0 0 55px;
+}
+.back-to-orders {
+    float: right;
+    text-align: right;
+}
+.back-to-orders a {
+    font-size: 11px;
+    color: #333;
+    font-weight: 400;
+}
+.back-to-orders a:hover {
+    color: #FDB453;
+}
+.back-to-orders i {
+    color: #FDB453;
+    font-size: 12px;
+}
+
+.itens-pedido {
+    margin-bottom: 25px;
+}
 /* lg */ 
 @media (min-width: 1200px) {
 

@@ -25,9 +25,15 @@ class UserController extends Controller {
     public function lastOrders(Order $orderModel)
     {
 //        $orders = Auth::user()->orders;
-        $orders = $orderModel->where('user_id', '=', Auth::user()->id)->get();
+        $orders = $orderModel->where('user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->take(5)->get();
         $id = Auth::user()->id;
         return view('store.control_panel.orders.last_orders', compact('orders', 'id'));
+    }
+
+    public function orderDetail(Order $orderModel, $id)
+    {
+        $order = $orderModel->find($id);
+        return view('store.control_panel.orders.order_detail', compact('order'));
     }
 
     public function openedOrders()
