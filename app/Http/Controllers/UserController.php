@@ -100,32 +100,32 @@ class UserController extends Controller {
         return view('store.control_panel.orders.orders_by_number', compact('orders', 'id', 'panelName', 'numero'));
     }
 
-    public function ordersByDate(Request $request)
+    public function ordersByPeriod(Request $request)
     {
         $panelName = 'Pedidos por período';
-
-        if (isset($request)) {
-
-        $deArray = explode('/', $request->get('de'));
-        $de = $deArray[2] . '-' . $deArray[1] . '-' . $deArray[0];
-
-        $ateArray = explode('/', $request->get('ate'));
-        $ate = $ateArray[2] . '-' . $ateArray[1] . '-' . $ateArray[0];
-        }
-
         $orders = null;
 
-        if(isset($de) and isset($ate)){
+        if ($request->get('de') != null && $request->get('ate') != null)
+        {
+            $deArray = explode('/', $request->get('de'));
+            $de = $deArray[1] . '-' . $deArray[0] . '-' . '01' . ' 00:00:00';
+
+            $ateArray = explode('/', $request->get('ate'));
+            $ate = $ateArray[1] . '-' . $ateArray[0] . '-' . '31' . ' 23:59:59';
+
             // pegando os pedidos entregues (status = 4)
-            $orders = $this->orderModel
-                ->where('user_id', '=', Auth::user()->id)
-                ->whereBetween('created_at', [$de, $ate])
-                ->get();
+            $orders = $this->orderModel->where('user_id', '=', Auth::user()->id)
+                                        ->whereBetween('created_at', [$de, $ate])
+                                        ->orderBy('created_at', 'desc')
+                                        ->paginate(5);
+
+            $de = $request->get('de');
+            $ate = $request->get('ate');
         }
 
         $id = Auth::user()->id;
 
-        return view('store.control_panel.orders.orders_by_period', compact('orders', 'id', 'panelName', 'de'));
+        return view('store.control_panel.orders.orders_by_period', compact('orders', 'id', 'panelName', 'de', 'ate'));
     }
 
     public function allOrders()

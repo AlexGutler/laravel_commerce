@@ -7,7 +7,7 @@
                 <p><a href="{{route('panel.opened_orders')}}">Pedidos em Aberto</a></p>
                 <p><a href="{{route('panel.delivered_orders')}}">Pedidos Entregues</a></p>
                 <p><a href="{{route('panel.orders_by_number')}}">Pedidos por Número</a></p>
-                <p><a href="{{route('panel.orders_by_date')}}">Pedidos por Data</a></p>
+                <p><a href="{{route('panel.orders_by_period')}}">Pedidos por Período</a></p>
                 <p><a href="{{route('panel.all_orders')}}">Todos os Pedidos</a></p>
             </div>
         </div>

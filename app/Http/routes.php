@@ -64,16 +64,15 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/checkout/placeorder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
     Route::get('/account/orders', ['as' => 'account.orders', 'uses' => 'UserController@orders']);
 
-    Route::group(['prefix' => '/ControlPanel/panel'], function(){
+    Route::group(['prefix' => '/ControlPanel/panel/'], function(){
+        Route::get('', function(){return redirect()->route('panel.home');});
         Route::get('/home', ['as' => 'panel.home', 'uses' => 'UserController@home']);
         Route::get('/order/{id}/detail', ['as' => 'panel.order_detail', 'uses' => 'UserController@orderDetail']);
         Route::get('/LastOrders', ['as' => 'panel.last_orders', 'uses' => 'UserController@lastOrders']);
         Route::get('/OpenedOrders', ['as' => 'panel.opened_orders', 'uses' => 'UserController@openedOrders']);
         Route::get('/DeliveredOrders', ['as' => 'panel.delivered_orders', 'uses' => 'UserController@deliveredOrders']);
-        Route::get('/OrdersByNumber', ['as' => 'panel.orders_by_number', 'uses' => 'UserController@ordersByNumber']);
-        Route::post('/OrdersByNumber', ['as' => 'panel.post_by_number', 'uses' => 'UserController@ordersByNumber']);
-        Route::get('/OrdersByDate', ['as' => 'panel.orders_by_date', 'uses' => 'UserController@ordersByDate']);
-        Route::post('/OrdersByDate', ['as' => 'panel.post_by_period', 'uses' => 'UserController@ordersByDate']);
+        Route::match(['get', 'post'], '/OrdersByNumber', ['as' => 'panel.orders_by_number', 'uses' => 'UserController@ordersByNumber']);
+        Route::match(['get', 'post'], '/OrdersByPeriod', ['as' => 'panel.orders_by_period', 'uses' => 'UserController@ordersByPeriod']);
         Route::get('/AllOrders', ['as' => 'panel.all_orders', 'uses' => 'UserController@allOrders']);
     });
 

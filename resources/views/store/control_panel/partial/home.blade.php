@@ -25,7 +25,7 @@
                     <a class="btn btn-default btn-panel" href="{{route('panel.orders_by_number')}}"  role="button">Pedidos por Número</a>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-default btn-panel" href="{{route('panel.orders_by_date')}}"    role="button">Pedidos por Data</a>
+                    <a class="btn btn-default btn-panel" href="{{route('panel.orders_by_period')}}"    role="button">Pedidos por Período</a>
                 </div>
                 <div class="col-md-4">
                     <a class="btn btn-default btn-panel" href="{{route('panel.all_orders')}}"        role="button">Todos os Pedidos</a>
