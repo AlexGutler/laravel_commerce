@@ -91,6 +91,9 @@ Route::controllers([
     'teste' => 'TesteController'
 ]);
 
+Route::get('home-cidade', ['as' => 'home-cidade', 'uses' => 'CidadeController@index']);
+Route::get('get-cidades/{idEstado}', 'CidadeController@getCidades');
+
 Route::get('evento', function(){
     // Fomas de disparar o evento
 //    \Illuminate\Support\Facades\Event::fire(new \CodeCommerce\Events\CheckoutEvent());

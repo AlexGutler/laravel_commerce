@@ -26,11 +26,11 @@
                             R$ 94,90 - Saraiva - 2x sem juros - 5% de Desc (ECOMMERCE H)
                         </div>
                         <div class="col-md-3 order-address">
-                            <p><strong>Endereço</strong></p>
-                            <div class="endTitle">
-                                <div class="endEntregaCobranca">Entrega e cobrança</div>
-                                <div class="setaEndCob"></div>
-                            </div>
+                            <p><strong>Endereço de Entrega</strong></p>
+                            {{--<div class="endTitle">--}}
+                                {{--<div class="endEntregaCobranca"> Endereço de Entrega</div>--}}
+                                {{--<div class="setaEndCob"></div>--}}
+                            {{--</div>--}}
                             Rua José de Anchieta Fontana - 00252
                             Alvorada - Santa Teresa - ES
                             Brasil - 29650000

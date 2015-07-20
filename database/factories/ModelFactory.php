@@ -16,13 +16,13 @@ $factory->define(CodeCommerce\User::class, function ($faker) {
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => str_random(10),
-        'remember_token' => str_random(10),
+        'remember_token' => str_random(10)
     ];
 });
 $factory->define(CodeCommerce\Category::class, function ($faker) {
     return [
         'name' => $faker->word(),
-        'description' => $faker->sentence(),
+        'description' => $faker->sentence()
     ];
 });
 $factory->define(CodeCommerce\Tag::class, function ($faker) {
@@ -38,5 +38,17 @@ $factory->define(CodeCommerce\Product::class, function ($faker) {
         'category_id' => $faker->numberBetween(1, 15),
         'featured' => $faker->boolean(),
         'recommend' => $faker->boolean()
+    ];
+});
+$factory->define(CodeCommerce\Estado::class, function ($faker) {
+    return [
+        'nome' => $faker->word().' '.$faker->numberBetween(1, 9),
+        'description' => $faker->sentence()
+    ];
+});
+$factory->define(CodeCommerce\Cidade::class, function ($faker) {
+    return [
+        'nome' => $faker->word(),
+        'estado_id' => $faker->numberBetween(1, 3)
     ];
 });
