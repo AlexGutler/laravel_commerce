@@ -40,10 +40,9 @@ $factory->define(CodeCommerce\Product::class, function ($faker) {
         'recommend' => $faker->boolean()
     ];
 });
-$factory->define(CodeCommerce\Estado::class, function ($faker) {
+$factory->define(\CodeCommerce\Estado::class, function ($faker) {
     return [
-        'nome' => $faker->word().' '.$faker->numberBetween(1, 9),
-        'description' => $faker->sentence()
+        'nome' => $faker->word()
     ];
 });
 $factory->define(CodeCommerce\Cidade::class, function ($faker) {

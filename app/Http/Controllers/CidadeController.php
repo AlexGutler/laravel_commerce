@@ -17,7 +17,8 @@ class CidadeController extends Controller
 
     function index()
     {
-        $estados = $this->estadoModel->lists('nome', 'id');
+        $e = $this->estadoModel->lists('nome', 'id');
+        $estados = array_merge(['0'=>'Selecione o Estado...'], $e->toArray());
         return view('cidade', compact('estados'));
     }
 

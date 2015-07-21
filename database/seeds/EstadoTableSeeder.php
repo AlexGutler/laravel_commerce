@@ -1,13 +1,13 @@
 <?php
 use \Illuminate\Database\Seeder;
 
-class TagTableSeeder extends Seeder
+class EstadoTableSeeder extends Seeder
 {
     public function run()
     {
         // limpar a tabela
-        DB::table('tags')->truncate();
+        DB::table('estados')->truncate();
 
-        factory('CodeCommerce\Estado', 3)->create();
+        factory(\CodeCommerce\Estado::class, 3)->create();
     }
 }

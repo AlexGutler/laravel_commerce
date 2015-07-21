@@ -8,7 +8,7 @@ class Estado extends Model
 {
     protected $fillable = ['nome'];
 
-    public $timestamp = false;
+    public $timestamps = false;
 
     public function cidades()
     {
